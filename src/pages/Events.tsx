@@ -20,6 +20,7 @@ const Events = () => {
       category: 'Event'
     }
   ];
+  
 
   const pastEvents = [
     {
