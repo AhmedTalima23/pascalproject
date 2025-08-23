@@ -65,7 +65,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Email Us</h3>
-                    <p className="text-gray-600"> zeinabmohamed0101@gmail.com</p>
+                   <a
+                        href="mailto:zeinabmohamed0101@gmail.com"
+                        className="text-gray-600 hover:underline"
+                      >
+                    zeinabmohamed0101@gmail.com
+                    </a>
                   </div>
                 </div>
               </div>
@@ -85,6 +90,7 @@ const Contact = () => {
                     href="mailto:zeinabmohamed0101@gmail.com"
                     className="w-12 h-12 bg-gray-600 hover:bg-gray-700 text-white rounded-lg flex items-center justify-center transition-colors"
                   >
+                    zeinabmohamed0101@gmail.com
                     <Mail className="h-6 w-6" />
                   </a>
                 </div>
