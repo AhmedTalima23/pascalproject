@@ -65,7 +65,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Email Us</h3>
-                    <p className="text-gray-600"> youssefhassanm3@gmail.com</p>
+                    <p className="text-gray-600"> zeinabmohamed0101@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -82,7 +82,7 @@ const Contact = () => {
                     <Facebook className="h-6 w-6" />
                   </a>
                   <a
-                    href="mailto:youssefhassanm3@gmail.com"
+                    href="mailto:zeinabmohamed0101@gmail.com"
                     className="w-12 h-12 bg-gray-600 hover:bg-gray-700 text-white rounded-lg flex items-center justify-center transition-colors"
                   >
                     <Mail className="h-6 w-6" />
