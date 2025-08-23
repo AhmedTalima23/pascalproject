@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Heart, Lightbulb, Award, Quote } from 'lucide-react';
+import { Users, Heart, Lightbulb, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
 import AnimatedSection from '../components/AnimatedSection';
 
@@ -28,25 +28,6 @@ const About = () => {
   ];
 
   const testimonials = [
-    {
-      name: 'Ahmed Hassan',
-      role: 'Former President',
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'Pascal has been instrumental in shaping my leadership skills and professional network. The experiences I gained here have been invaluable.'
-    },
-    {
-      name: 'Nour Ibrahim',
-      role: 'Event Coordinator',
-      image: 'https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'Being part of Pascal allowed me to organize impactful events and develop project management skills that I use in my career today.'
-    },
-    {
-      name: 'Omar Mansour',
-      role: 'Community Outreach',
-      image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400',
-      quote: 'The community service projects we organized through Pascal taught me the importance of giving back and making a difference.'
-    }
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -210,65 +191,6 @@ const About = () => {
         </div>
       </AnimatedSection>
 
-      {/* Testimonials */}
-      <AnimatedSection className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Members Say</h2>
-            <p className="text-xl text-gray-600">
-              Hear from our community members about their Pascal experience
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={index}
-                className="bg-gray-50 p-6 rounded-lg relative hover-lift"
-                variants={itemVariants}
-                whileHover={{ scale: 1.02 }}
-              >
-                <motion.div
-                  whileHover={{ rotate: 15 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Quote className="h-8 w-8 text-navy mb-4" />
-                </motion.div>
-                <p className="text-gray-700 mb-6 italic">"{testimonial.quote}"</p>
-                <motion.div
-                  className="flex items-center"
-                  whileHover={{ x: 5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <motion.img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                  <div>
-                    <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                    <p className="text-sm text-gray-600">{testimonial.role}</p>
-                  </div>
-                </motion.div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </AnimatedSection>
 
       {/* Call to Action */}
       <section className="py-16 bg-navy text-white relative overflow-hidden">
