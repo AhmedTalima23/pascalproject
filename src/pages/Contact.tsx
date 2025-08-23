@@ -60,42 +60,18 @@ const Contact = () => {
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gold/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-6 w-6 text-navy" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Our Location</h3>
-                    <p className="text-gray-600">
-                      Cairo University<br />
-                      Faculty of Engineering<br />
-                      Giza, Egypt
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gold/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    
                     <Mail className="h-6 w-6 text-navy" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Email Us</h3>
-                    <p className="text-gray-600">info@pascalcufe.org</p>
-                    <p className="text-gray-600">events@pascalcufe.org</p>
+                    <p className="text-gray-600"> youssefhassanm3@gmail.com</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gold/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Clock className="h-6 w-6 text-navy" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Office Hours</h3>
-                    <p className="text-gray-600">
-                      Sunday - Thursday: 10:00 AM - 4:00 PM<br />
-                      Friday - Saturday: Closed
-                    </p>
-                  </div>
-                </div>
-              </div>
+                    
 
               <div className="mt-8">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Follow Us</h3>
@@ -109,7 +85,7 @@ const Contact = () => {
                     <Facebook className="h-6 w-6" />
                   </a>
                   <a
-                    href="mailto:info@pascalcufe.org"
+                    href=" youssefhassanm3@gmail.com"
                     className="w-12 h-12 bg-gray-600 hover:bg-gray-700 text-white rounded-lg flex items-center justify-center transition-colors"
                   >
                     <Mail className="h-6 w-6" />
@@ -169,8 +145,6 @@ const Contact = () => {
                   >
                     <option value="">Select a subject</option>
                     <option value="general">General Inquiry</option>
-                    <option value="events">Event Information</option>
-                    <option value="membership">Membership</option>
                     <option value="partnership">Partnership</option>
                     <option value="feedback">Feedback</option>
                   </select>
@@ -217,28 +191,6 @@ const Contact = () => {
                   </div>
                 )}
               </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Find Us</h2>
-            <p className="text-xl text-gray-600">
-              Visit us at Cairo University Faculty of Engineering
-            </p>
-          </div>
-          
-          <div className="bg-white rounded-lg shadow-lg p-4">
-            <div className="w-full h-64 bg-gray-200 rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-                <p className="text-gray-600">Interactive map would be embedded here</p>
-                <p className="text-sm text-gray-500">Cairo University Faculty of Engineering, Giza</p>
-              </div>
             </div>
           </div>
         </div>
