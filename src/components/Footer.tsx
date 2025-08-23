@@ -34,7 +34,7 @@ const Footer = () => {
                 <Facebook className="h-6 w-6" />
               </a>
               <a
-                href="mailto:info@pascalcufe.org"
+                href=" youssefhassanm3@gmail.com"
                 className="text-gray-300 hover:text-gold transition-colors"
               >
                 <Mail className="h-6 w-6" />
@@ -73,19 +73,10 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
             <div className="space-y-3">
-              <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-gray-300 mt-0.5" />
-                <div>
-                  <p className="text-gray-300 text-sm">
-                    Cairo University<br />
-                    Faculty of Engineering<br />
-                    Giza, Egypt
-                  </p>
-                </div>
-              </div>
+              
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-gray-300" />
-                <p className="text-gray-300 text-sm">info@pascalcufe.org</p>
+                <p className="text-gray-300 text-sm"> youssefhassanm3@gmail.com</p>
               </div>
             </div>
           </div>
@@ -93,7 +84,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center">
           <p className="text-gray-300 text-sm">
-            © 2024 Pascal CUFE. All rights reserved. Made with ❤️ by Pascal Team.
+            © 2024 Pascal CUFE. All rights reserved. Made with by Pascal Team.
           </p>
         </div>
       </div>
