@@ -82,7 +82,7 @@ const Contact = () => {
                     <Facebook className="h-6 w-6" />
                   </a>
                   <a
-                    href=" youssefhassanm3@gmail.com"
+                    href="mailto:youssefhassanm3@gmail.com"
                     className="w-12 h-12 bg-gray-600 hover:bg-gray-700 text-white rounded-lg flex items-center justify-center transition-colors"
                   >
                     <Mail className="h-6 w-6" />
