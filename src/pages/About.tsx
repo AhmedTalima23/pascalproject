@@ -122,9 +122,12 @@ const About = () => {
                   transition={{ delay: 0.2, duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  Pascal was founded in 2020 by a group of passionate CUFE students who saw the need 
-                  for a platform that brings together like-minded individuals committed to making a 
-                  positive impact in their community.
+                  Pascal Academy Founded in 2020 at Cairo University
+                  Faculty of Engineering , Pascal Academy is a pioneering
+                  student-led initiative under the supervision of Prof.
+                  Emad El-Kashef, head of the Central Workshops and
+                  the Development Research & Technological Planning
+                  Centre.
                 </motion.p>
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
@@ -132,21 +135,9 @@ const About = () => {
                   transition={{ delay: 0.4, duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  What started as a small initiative has grown into a thriving nonprofit organization 
-                  with over 150 active members. We've organized more than 25 successful events, 
-                  completed 10+ community service projects, and touched the lives of hundreds of 
-                  students and community members.
-                </motion.p>
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6, duration: 0.6 }}
-                  viewport={{ once: true }}
-                >
-                  Our name "Pascal" reflects our commitment to precision, logic, and structured 
-                  thinking - qualities that guide us in all our endeavors. We believe that through 
-                  careful planning and dedicated execution, we can create meaningful change in our 
-                  community.
+                   Today, Pascal stands as one of the most active and
+                    influential student communities in Mechanical
+                    engineering education across Egypt
                 </motion.p>
               </div>
             </motion.div>
