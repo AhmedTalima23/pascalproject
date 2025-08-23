@@ -27,7 +27,7 @@ const About = () => {
     }
   ];
 
-  const testimonials = [
+  const testimonials = [];
 
   const containerVariants = {
     hidden: { opacity: 0 },
