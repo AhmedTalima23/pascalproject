@@ -68,6 +68,7 @@ const Contact = () => {
                     <p className="text-gray-600"> youssefhassanm3@gmail.com</p>
                   </div>
                 </div>
+              </div>
 
               <div className="mt-8">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Follow Us</h3>
