@@ -171,7 +171,7 @@ const Home = () => {
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                View Our Events
+                View Our Eventssss
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </motion.a>
               <motion.a
