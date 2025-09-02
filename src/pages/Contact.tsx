@@ -76,7 +76,7 @@ const Contact = () => {
               </div>
 
               <div className="mt-8">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Follow Us</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Follow uuuuUs</h3>
                 <div className="flex space-x-4">
                   <a
                     href="https://facebook.com/PascalCUFE"
