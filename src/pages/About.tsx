@@ -7,7 +7,7 @@ const About = () => {
   const values = [
     {
       icon: Heart,
-      title: 'Community First',
+      title: 'Community First ',
       description: 'We believe in the power of community and strive to create meaningful connections among CUFE students.'
     },
     {
