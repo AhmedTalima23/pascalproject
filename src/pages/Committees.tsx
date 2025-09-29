@@ -11,7 +11,7 @@ const Committees = () => {
       icon: Brain,
       description: 'Focuses on artificial intelligence and machine learning applications in engineering. Develops AI-driven solutions, conducts research on emerging technologies, and organizes workshops on data science and automation.',
       responsibilities: ['AI research and development', 'Machine learning workshops', 'Data analysis projects', 'Automation solutions'],
-      image: '/AI.jpg'
+      image: '/AI-1200x800.jpg'
     },
     {
       id: 2,
