@@ -7,6 +7,7 @@ import PageTransition from './components/PageTransition';
 import Home from './pages/Home';
 import About from './pages/About';
 import Events from './pages/Events';
+import Committees from './pages/Committees';
 import Contact from './pages/Contact';
 
 const pageVariants = {
@@ -47,6 +48,7 @@ const AnimatedRoutes = () => {
           <Route path="/" element={<PageTransition><Home /></PageTransition>} />
           <Route path="/about" element={<PageTransition><About /></PageTransition>} />
           <Route path="/events" element={<PageTransition><Events /></PageTransition>} />
+          <Route path="/committees" element={<PageTransition><Committees /></PageTransition>} />
           <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
         </Routes>
       </motion.div>
