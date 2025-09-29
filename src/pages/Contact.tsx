@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MapPin, Facebook, Send, Clock, Phone } from 'lucide-react';
+import { Mail, Facebook, Phone, Instagram } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -58,23 +58,42 @@ const Contact = () => {
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Get in Touch</h2>
               
               <div className="space-y-6">
+                {/* Email */}
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-gold/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    
                     <Mail className="h-6 w-6 text-navy" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Email Us</h3>
-                   <a
-                        href="mailto: youssefhassanm3@gmail.com"
-                        className="text-gray-600 hover:underline"
-                      >
-                     youssefhassanm3@gmail.com
+                    <a
+                      href="mailto:youssefhassanm3@gmail.com"
+                      className="text-gray-600 hover:underline"
+                    >
+                      youssefhassanm3@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* WhatsApp */}
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Phone className="h-6 w-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-1">WhatsApp</h3>
+                    <a
+                      href="https://wa.me/201020228553"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-600 hover:underline"
+                    >
+                      +20 102 022 8553
                     </a>
                   </div>
                 </div>
               </div>
 
+              {/* Social Links */}
               <div className="mt-8">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Follow Us</h3>
                 <div className="flex space-x-4">
@@ -86,18 +105,80 @@ const Contact = () => {
                   >
                     <Facebook className="h-6 w-6" />
                   </a>
+
                   <a
-                    href="mailto: youssefhassanm3@gmail.com"
+                    href="https://www.instagram.com/pascal_academy25?utm_source=ig_web_button_share_sheet&igsh=MXRkZXMzMzA0bGx3bA=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-pink-600 hover:bg-pink-700 text-white rounded-lg flex items-center justify-center transition-colors"
+                  >
+                    <Instagram className="h-6 w-6" />
+                  </a>
+
+                  <a
+                    href="mailto:youssefhassanm3@gmail.com"
                     className="w-12 h-12 bg-gray-600 hover:bg-gray-700 text-white rounded-lg flex items-center justify-center transition-colors"
                   >
-                    
                     <Mail className="h-6 w-6" />
                   </a>
                 </div>
               </div>
             </div>
 
-           
+            {/* Contact Form */}
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Send Us a Message</h2>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder="Your Name"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="Your Email"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3"
+                  required
+                />
+                <input
+                  type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  placeholder="Subject"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3"
+                  required
+                />
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  placeholder="Message"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 h-32"
+                  required
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-navy hover:bg-primary-800 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
+                {submitStatus === 'success' && (
+                  <p className="text-green-600 mt-2">Message sent successfully!</p>
+                )}
+                {submitStatus === 'error' && (
+                  <p className="text-red-600 mt-2">Something went wrong. Please try again.</p>
+                )}
+              </form>
+            </div>
           </div>
         </div>
       </section>
