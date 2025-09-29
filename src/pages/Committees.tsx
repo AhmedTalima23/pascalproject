@@ -11,7 +11,7 @@ const Committees = () => {
       icon: Brain,
       description: 'Focuses on artificial intelligence and machine learning applications in engineering. Develops AI-driven solutions, conducts research on emerging technologies, and organizes workshops on data science and automation.',
       responsibilities: ['AI research and development', 'Machine learning workshops', 'Data analysis projects', 'Automation solutions'],
-      image: '/AI.jpg'
+      image: '/committee-placeholder.jpg'
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ const Committees = () => {
       icon: Car,
       description: 'Dedicated to automotive engineering and vehicle technology. Works on automotive projects, organizes car shows, and connects students with automotive industry professionals.',
       responsibilities: ['Vehicle design projects', 'Automotive workshops', 'Industry partnerships', 'Racing team support'],
-      image: '/automotive.jpg'
+      image: '/committee-placeholder.jpg'
     },
     {
       id: 3,
@@ -27,7 +27,7 @@ const Committees = () => {
       icon: Palette,
       description: 'Creates visual content and branding materials for Pascal. Designs posters, social media content, presentations, and maintains the visual identity of all Pascal activities.',
       responsibilities: ['Visual branding', 'Social media graphics', 'Event materials design', 'Website graphics'],
-      image: '/graphic-design.jpg'
+      image: '/committee-placeholder.jpg'
     },
     {
       id: 4,
@@ -35,7 +35,7 @@ const Committees = () => {
       icon: UserCheck,
       description: 'Manages human resources and member relations within Pascal. Handles recruitment, member development, team building activities, and maintains a positive organizational culture.',
       responsibilities: ['Member recruitment', 'Team development', 'Conflict resolution', 'Performance evaluation'],
-      image: '/hr.jpg'
+      image: '/committee-placeholder.jpg'
     },
     {
       id: 5,
@@ -43,7 +43,7 @@ const Committees = () => {
       icon: Megaphone,
       description: 'Promotes Pascal events and activities across various platforms. Develops marketing strategies, manages social media presence, and builds partnerships with other organizations.',
       responsibilities: ['Social media management', 'Event promotion', 'Partnership development', 'Brand awareness'],
-      image: '/marketing.jpg'
+      image: '/committee-placeholder.jpg'
     },
     {
       id: 6,
@@ -51,7 +51,7 @@ const Committees = () => {
       icon: Camera,
       description: 'Captures and documents Pascal events through photography and videography. Creates promotional videos, event highlights, and maintains a visual archive of Pascal activities.',
       responsibilities: ['Event photography', 'Video production', 'Content editing', 'Visual documentation'],
-      image: '/photography.jpg'
+      image: '/committee-placeholder.jpg'
     },
     {
       id: 7,
@@ -59,7 +59,7 @@ const Committees = () => {
       icon: Globe,
       description: 'Manages external relations and partnerships. Builds connections with industry professionals, other student organizations, and academic institutions to expand Pascal\'s network.',
       responsibilities: ['Industry partnerships', 'Inter-university relations', 'Guest speaker coordination', 'Networking events'],
-      image: '/er.jpg'
+      image: '/committee-placeholder.jpg'
     },
     {
       id: 8,
@@ -67,7 +67,7 @@ const Committees = () => {
       icon: Wind,
       description: 'Specializes in Computational Fluid Dynamics and simulation technologies. Conducts CFD analysis, organizes simulation workshops, and works on fluid mechanics projects.',
       responsibilities: ['CFD analysis', 'Simulation workshops', 'Fluid mechanics projects', 'Software training'],
-      image: '/cfd.jpg'
+      image: '/committee-placeholder.jpg'
     },
     {
       id: 9,
@@ -75,7 +75,7 @@ const Committees = () => {
       icon: Wrench,
       description: 'Focuses on hydraulic and pneumatic systems in mechanical engineering. Develops projects related to fluid power systems and organizes hands-on workshops.',
       responsibilities: ['Hydraulic system design', 'Pneumatic projects', 'Fluid power workshops', 'System maintenance'],
-      image: '/hydraulic.jpg'
+      image: '/committee-placeholder.jpg'
     },
     {
       id: 10,
@@ -83,7 +83,7 @@ const Committees = () => {
       icon: Lightbulb,
       description: 'Drives research and development initiatives within Pascal. Identifies emerging technologies, conducts feasibility studies, and develops innovative solutions for engineering challenges.',
       responsibilities: ['Research projects', 'Innovation development', 'Technology assessment', 'Patent research'],
-      image: '/rnd.jpg'
+      image: '/committee-placeholder.jpg'
     }
   ];
 
@@ -166,20 +166,26 @@ const Committees = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {committees.map((committee) => (
+            {committees.map((committee, index) => (
               <motion.div
                 key={committee.id}
                 className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover-lift"
                 variants={itemVariants}
                 whileHover={{ y: -10, scale: 1.02 }}
               >
-                {/* Committee Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={committee.image}
-                    alt={`${committee.name} image`}
-                    className="w-full h-full object-cover"
-                  />
+                {/* Committee Image Placeholder */}
+                <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                  <div className="text-center">
+                    <motion.div
+                      className="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-3"
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <committee.icon className="h-8 w-8 text-navy" />
+                    </motion.div>
+                    <p className="text-gray-500 text-sm">Committee Photo</p>
+                    <p className="text-gray-400 text-xs">Coming Soon</p>
+                  </div>
                 </div>
 
                 <div className="p-6">
