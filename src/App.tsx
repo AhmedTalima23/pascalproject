@@ -9,6 +9,7 @@ import About from './pages/About';
 import Events from './pages/Events';
 import Committees from './pages/Committees';
 import Contact from './pages/Contact';
+import Partners from './pages/Partners';
 
 const pageVariants = {
   initial: {
@@ -49,6 +50,7 @@ const AnimatedRoutes = () => {
           <Route path="/about" element={<PageTransition><About /></PageTransition>} />
           <Route path="/events" element={<PageTransition><Events /></PageTransition>} />
           <Route path="/committees" element={<PageTransition><Committees /></PageTransition>} />
+          <Route path="/partners" element={<PageTransition><Partners /></PageTransition>} />
           <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
         </Routes>
       </motion.div>
