@@ -5,7 +5,7 @@ import AnimatedSection from '../components/AnimatedSection';
 
 const Partners = () => {
   const partners = [
-    { id: 1, name: 'Partner 1', logo: '/partners/placeholder1.png' },
+    { id: 1, name: 'Partner 1', logo: '/partners/Achem.png' },
     { id: 2, name: 'Partner 2', logo: '/partners/placeholder2.png' },
     { id: 3, name: 'Partner 3', logo: '/partners/placeholder3.png' },
     { id: 4, name: 'Partner 4', logo: '/partners/placeholder4.png' },
