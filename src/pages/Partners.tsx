@@ -5,14 +5,23 @@ import AnimatedSection from '../components/AnimatedSection';
 
 const Partners = () => {
   const partners = [
-    { id: 1, name: 'Partner 1', logo: '/partners/Achem.png' },
-    { id: 2, name: 'Partner 2', logo: '/partners/placeholder2.png' },
-    { id: 3, name: 'Partner 3', logo: '/partners/placeholder3.png' },
-    { id: 4, name: 'Partner 4', logo: '/partners/placeholder4.png' },
-    { id: 5, name: 'Partner 5', logo: '/partners/placeholder5.png' },
-    { id: 6, name: 'Partner 6', logo: '/partners/placeholder6.png' },
-    { id: 7, name: 'Partner 7', logo: '/partners/placeholder7.png' },
-    { id: 8, name: 'Partner 8', logo: '/partners/placeholder8.png' },
+    { id: 1, name: 'Achem', logo: '/partners/Achem.png' },
+    { id: 2, name: 'CANEX', logo: '/partners/CANEX.png' },
+    { id: 3, name: 'Drik', logo: '/partners/drik.jpg' },
+    { id: 4, name: 'ECG', logo: '/partners/ecg.jpg' },
+    { id: 5, name: 'EGEC', logo: '/partners/egec.png' },
+    { id: 6, name: 'Elattal', logo: '/partners/elattal.jpg' },
+    { id: 7, name: 'Elwaha', logo: '/partners/elwaha.jpg' },
+    { id: 8, name: 'EMC', logo: '/partners/emc.jpg' },
+    { id: 9, name: 'Hamza', logo: '/partners/hamza.jpg' },
+    { id: 10, name: 'K-Flex', logo: '/partners/k-flex.png' },
+    { id: 11, name: 'Learnu', logo: '/partners/logo.png' },
+    { id: 12, name: 'Lotfy', logo: '/partners/lotfy.jpg' },
+    { id: 13, name: 'Obour', logo: '/partners/obour.jpg' },
+    { id: 14, name: 'Promec', logo: '/partners/promec.jpg' },
+    { id: 15, name: 'Rocol', logo: '/partners/rocol.jpg' },
+    { id: 16, name: 'Simplex', logo: '/partners/simplex.jpg' },
+    { id: 17, name: 'Zerust', logo: '/partners/zerust.png' },
   ];
 
   
@@ -104,13 +113,13 @@ const Partners = () => {
             <motion.div
               className="flex gap-8"
               animate={{
-                x: [0, -1920],
+                x: [0, -(partners.length * 272)],
               }}
               transition={{
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 30,
+                  duration: 40,
                   ease: "linear",
                 },
               }}
@@ -124,18 +133,14 @@ const Partners = () => {
               {duplicatedPartners.map((partner, index) => (
                 <motion.div
                   key={`${partner.id}-${index}`}
-                  className="flex-shrink-0 w-64 h-40 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group"
+                  className="flex-shrink-0 w-64 h-40 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group p-6"
                   whileHover={{ scale: 1.05, y: -5 }}
                 >
-                  <div className="text-center p-6">
-                    <div className="w-20 h-20 bg-gradient-to-br from-navy/10 to-gold/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:from-navy/20 group-hover:to-gold/20 transition-all duration-300">
-                      <div className="text-navy font-bold text-2xl">{partner.name.split(' ')[1]}</div>
-                    </div>
-                    <p className="text-gray-700 font-semibold group-hover:text-navy transition-colors duration-300">
-                      {partner.name}
-                    </p>
-                    <p className="text-gray-400 text-xs mt-1">Strategic Partner</p>
-                  </div>
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                  />
                 </motion.div>
               ))}
             </motion.div>
