@@ -15,6 +15,7 @@ const Partners = () => {
     { id: 8, name: 'Partner 8', logo: '/partners/placeholder8.png' },
   ];
 
+  
   const duplicatedPartners = [...partners, ...partners];
 
   const containerVariants = {
