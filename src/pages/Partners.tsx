@@ -22,8 +22,8 @@ const Partners = () => {
     { id: 15, name: 'Rocol', logo: '/partners/rocol.jpg' },
     { id: 16, name: 'Simplex', logo: '/partners/simplex.jpg' },
     { id: 17, name: 'Zerust', logo: '/partners/zerust.png' },
-    { id: 18, name: 'learnu', logo: '/partners/madena.jpeg' },
-    { id: 19, name: 'Zerust', logo: '/partners/zerust.png' },
+    { id: 18, name: 'madena', logo: '/partners/madena.jpeg' },
+    { id: 19, name: 'learnu', logo: '/partners/learnu.jpeg' },
   ];
 
   
