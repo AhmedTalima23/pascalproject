@@ -5,6 +5,7 @@ import AnimatedSection from '../components/AnimatedSection';
 
 const Committees = () => {
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
+
   const committees = [
     {
       id: 1,
@@ -49,8 +50,8 @@ const Committees = () => {
       description: 'Promotes Pascal events and activities across various platforms. Develops marketing strategies, manages social media presence, and builds partnerships with other organizations.',
       responsibilities: ['Social media management', 'Event promotion', 'Partnership development', 'Brand awareness'],
       image: '/committee-placeholder.jpg',
+      // ✅ Actual Facebook Reel (vertical format)
       videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/689435420861447'
-
     },
     {
       id: 6,
@@ -101,40 +102,18 @@ const Committees = () => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-      },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
   };
 
   return (
     <div className="py-16">
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-navy to-primary-800 text-white py-16 overflow-hidden relative">
-        <motion.div
-          className="absolute inset-0"
-          initial={{ scale: 1.2, opacity: 0 }}
-          animate={{ scale: 1, opacity: 0.1 }}
-          transition={{ duration: 1.5 }}
-        >
-          <div className="absolute top-10 left-10 w-32 h-32 bg-gold rounded-full opacity-20" />
-          <div className="absolute bottom-10 right-10 w-24 h-24 bg-coral rounded-full opacity-20" />
-        </motion.div>
-        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.h1
             className="text-4xl md:text-5xl font-bold mb-6"
@@ -159,34 +138,21 @@ const Committees = () => {
       <AnimatedSection className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Specialized Teams</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Each committee brings unique expertise and passion to create impactful experiences for our community
-            </p>
-          </motion.div>
-
-          <motion.div
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {committees.map((committee, index) => (
+            {committees.map((committee) => (
               <motion.div
                 key={committee.id}
                 className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover-lift"
                 variants={itemVariants}
                 whileHover={{ y: -10, scale: 1.02 }}
               >
-                {/* Committee Video Area */}
-                <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                {/* Video Section - 9:16 Ratio for Reels */}
+                <div className="relative pb-[177.78%] bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
                   <AnimatePresence mode="wait">
                     {playingVideo === committee.id ? (
                       <motion.div
@@ -199,8 +165,7 @@ const Committees = () => {
                       >
                         <iframe
                           src={committee.videoUrl}
-                          width="100%"
-                          height="100%"
+                          className="absolute top-0 left-0 w-full h-full"
                           style={{ border: 'none', overflow: 'hidden' }}
                           scrolling="no"
                           frameBorder="0"
@@ -261,82 +226,21 @@ const Committees = () => {
                     {committee.description}
                   </p>
 
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2 text-sm">Key Responsibilities:</h4>
-                    <ul className="space-y-1">
-                      {committee.responsibilities.map((responsibility, idx) => (
-                        <li key={idx} className="flex items-center text-xs text-gray-600">
-                          <div className="w-1.5 h-1.5 bg-navy rounded-full mr-2 flex-shrink-0"></div>
-                          {responsibility}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2 text-sm">Key Responsibilities:</h4>
+                  <ul className="space-y-1">
+                    {committee.responsibilities.map((responsibility, idx) => (
+                      <li key={idx} className="flex items-center text-xs text-gray-600">
+                        <div className="w-1.5 h-1.5 bg-navy rounded-full mr-2 flex-shrink-0"></div>
+                        {responsibility}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </AnimatedSection>
-
-      {/* Call to Action */}
-      <section className="py-16 bg-navy text-white relative overflow-hidden">
-        <motion.div
-          className="absolute inset-0"
-          initial={{ scale: 1.2, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 0.1 }}
-          transition={{ duration: 1.5 }}
-          viewport={{ once: true }}
-        >
-          <div className="absolute top-10 left-10 w-32 h-32 bg-gold rounded-full" />
-          <div className="absolute bottom-10 right-10 w-24 h-24 bg-coral rounded-full" />
-        </motion.div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold mb-4"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            Join a Committee
-          </motion.h2>
-          <motion.p
-            className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            Ready to contribute your skills and passion? Join one of our committees and make a meaningful impact in the engineering community.
-          </motion.p>
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <motion.a
-              href="/contact"
-              className="inline-flex items-center px-8 py-3 bg-coral hover:bg-coral/90 text-white font-semibold rounded-lg transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Apply Now
-            </motion.a>
-            <motion.a
-              href="/about"
-              className="inline-flex items-center px-8 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-navy font-semibold rounded-lg transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Learn More About Pascal
-            </motion.a>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 };
