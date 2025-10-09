@@ -45,7 +45,7 @@ const Committees = () => {
       description: 'Creates visual content and branding materials for Pascal. Designs posters, social media content, presentations, and maintains the visual identity of all Pascal activities.',
       responsibilities: ['Visual branding', 'Social media graphics', 'Event materials design', 'Website graphics'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/examplevideo'
+      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/1922256062001660'
     },
     {
       id: 4,
