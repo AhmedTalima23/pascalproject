@@ -1,10 +1,24 @@
-import React, { useState } from 'react';
-import { Users, Brain, Car, Palette, UserCheck, Megaphone, Camera, Globe, Wind, Wrench, Lightbulb, Play } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Users, Brain, Car, Palette, UserCheck, Megaphone, Camera, Globe, Wind, Wrench, Lightbulb, Play, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedSection from '../components/AnimatedSection';
 
 const Committees = () => {
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (playingVideo !== null) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.touchAction = '';
+    };
+  }, [playingVideo]);
   const committees = [
     {
       id: 1,
@@ -337,6 +351,70 @@ const Committees = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Video Modal Popup */}
+      <AnimatePresence>
+        {playingVideo !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm overflow-y-auto"
+            style={{
+              position: 'fixed',
+              touchAction: 'none',
+              WebkitOverflowScrolling: 'touch'
+            }}
+            onClick={() => setPlayingVideo(null)}
+          >
+            <div className="min-h-screen w-full flex items-center justify-center p-4 sm:p-6">
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                transition={{ duration: 0.3, type: "spring", damping: 25 }}
+                className="relative bg-black rounded-lg sm:rounded-2xl shadow-2xl overflow-hidden mx-auto"
+                style={{
+                  width: 'min(400px, calc(100vw - 2rem))',
+                  height: 'min(calc(400px * 16 / 9), calc(100vh - 4rem))',
+                  maxHeight: 'calc(100vh - 4rem)'
+                }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Close Button */}
+                <motion.button
+                  className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 w-10 h-10 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all duration-300 shadow-lg"
+                  onClick={() => setPlayingVideo(null)}
+                  whileHover={{ scale: 1.1, rotate: 90 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <X className="h-5 w-5 sm:h-6 sm:w-6" />
+                </motion.button>
+
+                {/* Video Container with 9:16 aspect ratio */}
+                <div className="w-full h-full relative" style={{ aspectRatio: '9/16' }}>
+                  <iframe
+                    src={committees.find(c => c.id === playingVideo)?.videoUrl}
+                    width="100%"
+                    height="100%"
+                    style={{
+                      border: 'none',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0
+                    }}
+                    scrolling="no"
+                    frameBorder="0"
+                    allowFullScreen={true}
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
