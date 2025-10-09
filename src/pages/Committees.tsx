@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
-  Brain, Car, Palette, UserCheck, Megaphone, Camera, Globe, Wind, Wrench, Lightbulb, Play
-} from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import AnimatedSection from '../components/AnimatedSection';
+  Brain,
+  Megaphone,
+  Play,
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import AnimatedSection from "../components/AnimatedSection";
 
 const Committees = () => {
-  const [playingVideo, setPlayingVideo] = useState<number | null>(null);
+  const [activeVideo, setActiveVideo] = useState<number | null>(null);
+  const [scrollY, setScrollY] = useState(0);
 
   const committees = [
     {
@@ -102,6 +105,17 @@ const Committees = () => {
     }
   ];
 
+  const openVideo = (id: number) => {
+    setScrollY(window.scrollY);
+    setActiveVideo(id);
+    document.body.style.overflow = "hidden"; // prevent scrolling behind
+  };
+
+  const closeVideo = () => {
+    setActiveVideo(null);
+    document.body.style.overflow = "auto";
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -115,7 +129,7 @@ const Committees = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -128,7 +142,7 @@ const Committees = () => {
             className="text-4xl md:text-5xl font-bold mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             Pascal's Committees
           </motion.h1>
@@ -136,7 +150,7 @@ const Committees = () => {
             className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           >
             Meet the specialized teams that drive Pascal's mission forward through expertise and dedication.
           </motion.p>
@@ -160,66 +174,28 @@ const Committees = () => {
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
               >
-                {/* Inline Expandable Video Section */}
-                <div className="relative bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
-                  <AnimatePresence mode="wait">
-                    {playingVideo === committee.id ? (
-                      <motion.div
-                        key="video"
-                        initial={{ opacity: 0, scale: 0.98 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.98 }}
-                        transition={{ duration: 0.3 }}
-                        className="w-full aspect-[9/16] bg-black"
-                      >
-                        <iframe
-                          src={committee.videoUrl}
-                          width="100%"
-                          height="100%"
-                          style={{ border: 'none', overflow: 'hidden' }}
-                          scrolling="no"
-                          frameBorder="0"
-                          allowFullScreen={true}
-                          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                        />
-                        <button
-                          className="absolute top-2 right-2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-8 h-8 flex items-center justify-center font-bold"
-                          onClick={() => setPlayingVideo(null)}
-                        >
-                          ✕
-                        </button>
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key="thumbnail"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="w-full aspect-[9/16] flex flex-col items-center justify-center cursor-pointer group bg-gray-100"
-                        onClick={() => setPlayingVideo(committee.id)}
-                      >
-                        <div className="text-center">
-                          <motion.div
-                            className="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-navy/20 transition-colors"
-                            whileHover={{ rotate: 360 }}
-                            transition={{ duration: 0.6 }}
-                          >
-                            <committee.icon className="h-8 w-8 text-navy" />
-                          </motion.div>
-                          <p className="text-gray-500 text-sm mb-2">Committee Video</p>
-                          <motion.button
-                            className="inline-flex items-center gap-2 px-4 py-2 bg-coral hover:bg-coral/90 text-white font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            <Play className="h-4 w-4" fill="currentColor" />
-                            <span>Play Video</span>
-                          </motion.button>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                {/* Video Thumbnail */}
+                <div className="relative aspect-[9/16] flex flex-col items-center justify-center bg-gray-100 cursor-pointer group"
+                  onClick={() => openVideo(committee.id)}
+                >
+                  <div className="text-center">
+                    <motion.div
+                      className="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-navy/20 transition-colors"
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <committee.icon className="h-8 w-8 text-navy" />
+                    </motion.div>
+                    <p className="text-gray-500 text-sm mb-2">Committee Video</p>
+                    <motion.button
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-coral hover:bg-coral/90 text-white font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Play className="h-4 w-4" fill="currentColor" />
+                      <span>Play Video</span>
+                    </motion.button>
+                  </div>
                 </div>
 
                 {/* Committee Info */}
@@ -228,12 +204,16 @@ const Committees = () => {
                     <div className="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center mr-3">
                       <committee.icon className="h-5 w-5 text-navy" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900">{committee.name}</h3>
+                    <h3 className="text-xl font-bold text-gray-900">
+                      {committee.name}
+                    </h3>
                   </div>
                   <p className="text-gray-600 mb-4 text-sm leading-relaxed">
                     {committee.description}
                   </p>
-                  <h4 className="font-semibold text-gray-900 mb-2 text-sm">Key Responsibilities:</h4>
+                  <h4 className="font-semibold text-gray-900 mb-2 text-sm">
+                    Key Responsibilities:
+                  </h4>
                   <ul className="space-y-1">
                     {committee.responsibilities.map((resp, idx) => (
                       <li key={idx} className="flex items-center text-xs text-gray-600">
@@ -248,6 +228,46 @@ const Committees = () => {
           </motion.div>
         </div>
       </AnimatedSection>
+
+      {/* Popup Video Modal */}
+      <AnimatePresence>
+        {activeVideo && (
+          <motion.div
+            className="fixed left-0 w-full h-full bg-black/70 z-50 flex items-center justify-center px-4"
+            style={{ top: `${scrollY}px` }} // Keep modal at current scroll position
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="relative bg-black rounded-2xl overflow-hidden w-full max-w-[400px] aspect-[9/16] shadow-2xl"
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+            >
+              <iframe
+                src={
+                  committees.find((c) => c.id === activeVideo)?.videoUrl || ""
+                }
+                width="100%"
+                height="100%"
+                style={{ border: "none", overflow: "hidden" }}
+                scrolling="no"
+                frameBorder="0"
+                allowFullScreen={true}
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              />
+              <button
+                className="absolute top-2 right-2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-8 h-8 flex items-center justify-center font-bold"
+                onClick={closeVideo}
+              >
+                ✕
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
