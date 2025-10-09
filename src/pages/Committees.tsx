@@ -43,7 +43,7 @@ const Committees = () => {
       description: 'Manages human resources and member relations within Pascal. Handles recruitment, member development, team building activities, and maintains a positive organizational culture.',
       responsibilities: ['Member recruitment', 'Team development', 'Conflict resolution', 'Performance evaluation'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/examplevideo'
+      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/767206849643558
     },
     {
       id: 5,
@@ -62,7 +62,7 @@ const Committees = () => {
       description: 'Captures and documents Pascal events through photography and videography. Creates promotional videos, event highlights, and maintains a visual archive of Pascal activities.',
       responsibilities: ['Event photography', 'Video production', 'Content editing', 'Visual documentation'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/examplevideo'
+      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/1314332460328483'
     },
     {
       id: 7,
@@ -71,7 +71,7 @@ const Committees = () => {
       description: 'Manages external relations and partnerships. Builds connections with industry professionals, other student organizations, and academic institutions to expand Pascal\'s network.',
       responsibilities: ['Industry partnerships', 'Inter-university relations', 'Guest speaker coordination', 'Networking events'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/examplevideo'
+      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/1454837409135099'
     },
     {
       id: 8,
