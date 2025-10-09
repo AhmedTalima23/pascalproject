@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Users, Brain, Car, Palette, UserCheck, Megaphone, Camera, Globe, Wind, Wrench, Lightbulb, Play, X
+  Brain, Car, Palette, UserCheck, Megaphone, Camera, Globe, Wind, Wrench, Lightbulb, Play
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import AnimatedSection from '../components/AnimatedSection';
@@ -158,19 +158,19 @@ const Committees = () => {
                 key={committee.id}
                 className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover-lift"
                 variants={itemVariants}
-                whileHover={{ y: -10, scale: 1.02 }}
+                whileHover={{ y: -5 }}
               >
-                {/* Video Section */}
-                <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                {/* Inline Expandable Video Section */}
+                <div className="relative bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
                   <AnimatePresence mode="wait">
                     {playingVideo === committee.id ? (
                       <motion.div
                         key="video"
-                        initial={{ opacity: 0, scale: 0.95 }}
+                        initial={{ opacity: 0, scale: 0.98 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
+                        exit={{ opacity: 0, scale: 0.98 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute inset-0"
+                        className="w-full aspect-[9/16] bg-black"
                       >
                         <iframe
                           src={committee.videoUrl}
@@ -182,6 +182,12 @@ const Committees = () => {
                           allowFullScreen={true}
                           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                         />
+                        <button
+                          className="absolute top-2 right-2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-8 h-8 flex items-center justify-center font-bold"
+                          onClick={() => setPlayingVideo(null)}
+                        >
+                          ✕
+                        </button>
                       </motion.div>
                     ) : (
                       <motion.div
@@ -190,7 +196,7 @@ const Committees = () => {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="absolute inset-0 flex items-center justify-center cursor-pointer group"
+                        className="w-full aspect-[9/16] flex flex-col items-center justify-center cursor-pointer group bg-gray-100"
                         onClick={() => setPlayingVideo(committee.id)}
                       >
                         <div className="text-center">
@@ -216,6 +222,7 @@ const Committees = () => {
                   </AnimatePresence>
                 </div>
 
+                {/* Committee Info */}
                 <div className="p-6">
                   <div className="flex items-center mb-4">
                     <div className="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center mr-3">
@@ -241,57 +248,6 @@ const Committees = () => {
           </motion.div>
         </div>
       </AnimatedSection>
-
-      {/* Video Modal */}
-      <AnimatePresence>
-        {playingVideo !== null && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm overflow-y-auto"
-            onClick={() => setPlayingVideo(null)}
-          >
-            <div className="min-h-screen w-full flex items-center justify-center p-4 sm:p-6">
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0, y: 20 }}
-                animate={{ scale: 1, opacity: 1, y: 0 }}
-                exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                transition={{ duration: 0.3, type: 'spring', damping: 25 }}
-                className="relative bg-black rounded-lg sm:rounded-2xl shadow-2xl overflow-hidden mx-auto"
-                style={{
-                  width: 'min(400px, calc(100vw - 2rem))',
-                  aspectRatio: '9/16',
-                }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                {/* Close Button */}
-                <motion.button
-                  className="absolute top-3 right-3 z-10 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-all duration-300 shadow-lg"
-                  onClick={() => setPlayingVideo(null)}
-                  whileHover={{ scale: 1.1, rotate: 90 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <X className="h-5 w-5 sm:h-6 sm:w-6" />
-                </motion.button>
-
-                {/* Facebook Reel */}
-                <iframe
-                  src={committees.find(c => c.id === playingVideo)?.videoUrl}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 'none' }}
-                  scrolling="yes"
-                  frameBorder="0"
-                  allowFullScreen={true}
-                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                />
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 };
