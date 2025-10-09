@@ -1,14 +1,9 @@
 import React, { useState } from "react";
-import {
-  Brain,
-  Megaphone,
-  Play,
-} from "lucide-react";
+import { Brain, Megaphone, Play } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import AnimatedSection from "../components/AnimatedSection";
 
 const Committees = () => {
-  const [activeVideo, setActiveVideo] = useState<number | null>(null);
+  const [activeVideo, setActiveVideo] = useState(null);
   const [scrollY, setScrollY] = useState(0);
 
   const committees = [
@@ -105,7 +100,8 @@ const Committees = () => {
     }
   ];
 
-  const openVideo = (id: number) => {
+  
+  const openVideo = (id) => {
     setScrollY(window.scrollY);
     setActiveVideo(id);
     document.body.style.overflow = "hidden"; // prevent scrolling behind
@@ -116,125 +112,76 @@ const Committees = () => {
     document.body.style.overflow = "auto";
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
   return (
     <div className="py-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-navy to-primary-800 text-white py-16 overflow-hidden relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-          <motion.h1
-            className="text-4xl md:text-5xl font-bold mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            Pascal's Committees
-          </motion.h1>
-          <motion.p
-            className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          >
-            Meet the specialized teams that drive Pascal's mission forward through expertise and dedication.
-          </motion.p>
-        </div>
+      <section className="bg-gradient-to-r from-navy to-primary-800 text-white py-16 text-center">
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">Pascal's Committees</h1>
+        <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+          Meet the specialized teams that drive Pascal's mission forward through expertise and dedication.
+        </p>
       </section>
 
       {/* Committees Grid */}
-      <AnimatedSection className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {committees.map((committee) => (
-              <motion.div
-                key={committee.id}
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover-lift"
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {committees.map((committee) => (
+            <motion.div
+              key={committee.id}
+              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+              whileHover={{ y: -5 }}
+            >
+              {/* Video Thumbnail */}
+              <div
+                className="relative aspect-[9/16] flex flex-col items-center justify-center bg-gray-100 cursor-pointer group"
+                onClick={() => openVideo(committee.id)}
               >
-                {/* Video Thumbnail */}
-                <div className="relative aspect-[9/16] flex flex-col items-center justify-center bg-gray-100 cursor-pointer group"
-                  onClick={() => openVideo(committee.id)}
-                >
-                  <div className="text-center">
-                    <motion.div
-                      className="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-navy/20 transition-colors"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <committee.icon className="h-8 w-8 text-navy" />
-                    </motion.div>
-                    <p className="text-gray-500 text-sm mb-2">Committee Video</p>
-                    <motion.button
-                      className="inline-flex items-center gap-2 px-4 py-2 bg-coral hover:bg-coral/90 text-white font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Play className="h-4 w-4" fill="currentColor" />
-                      <span>Play Video</span>
-                    </motion.button>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-navy/20 transition-colors">
+                    <committee.icon className="h-8 w-8 text-navy" />
                   </div>
+                  <p className="text-gray-500 text-sm mb-2">Committee Video</p>
+                  <motion.button
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-coral hover:bg-coral/90 text-white font-semibold rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Play className="h-4 w-4" fill="currentColor" />
+                    <span>Play Video</span>
+                  </motion.button>
                 </div>
+              </div>
 
-                {/* Committee Info */}
-                <div className="p-6">
-                  <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center mr-3">
-                      <committee.icon className="h-5 w-5 text-navy" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900">
-                      {committee.name}
-                    </h3>
+              {/* Committee Info */}
+              <div className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center mr-3">
+                    <committee.icon className="h-5 w-5 text-navy" />
                   </div>
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                    {committee.description}
-                  </p>
-                  <h4 className="font-semibold text-gray-900 mb-2 text-sm">
-                    Key Responsibilities:
-                  </h4>
-                  <ul className="space-y-1">
-                    {committee.responsibilities.map((resp, idx) => (
-                      <li key={idx} className="flex items-center text-xs text-gray-600">
-                        <div className="w-1.5 h-1.5 bg-navy rounded-full mr-2 flex-shrink-0"></div>
-                        {resp}
-                      </li>
-                    ))}
-                  </ul>
+                  <h3 className="text-xl font-bold text-gray-900">{committee.name}</h3>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                <p className="text-gray-600 mb-4 text-sm leading-relaxed">{committee.description}</p>
+                <h4 className="font-semibold text-gray-900 mb-2 text-sm">Key Responsibilities:</h4>
+                <ul className="space-y-1">
+                  {committee.responsibilities.map((resp, idx) => (
+                    <li key={idx} className="flex items-center text-xs text-gray-600">
+                      <div className="w-1.5 h-1.5 bg-navy rounded-full mr-2 flex-shrink-0"></div>
+                      {resp}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </AnimatedSection>
+      </section>
 
       {/* Popup Video Modal */}
       <AnimatePresence>
         {activeVideo && (
           <motion.div
             className="fixed left-0 w-full h-full bg-black/70 z-50 flex items-center justify-center px-4"
-            style={{ top: `${scrollY}px` }} // Keep modal at current scroll position
+            style={{ top: `${scrollY}px` }} // keeps position in view
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -247,17 +194,15 @@ const Committees = () => {
               transition={{ duration: 0.3 }}
             >
               <iframe
-                src={
-                  committees.find((c) => c.id === activeVideo)?.videoUrl || ""
-                }
+                src={committees.find((c) => c.id === activeVideo)?.videoUrl || ""}
                 width="100%"
                 height="100%"
                 style={{ border: "none", overflow: "hidden" }}
                 scrolling="no"
                 frameBorder="0"
-                allowFullScreen={true}
+                allowFullScreen
                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              />
+              ></iframe>
               <button
                 className="absolute top-2 right-2 bg-white/80 hover:bg-white text-gray-800 rounded-full w-8 h-8 flex items-center justify-center font-bold"
                 onClick={closeVideo}
