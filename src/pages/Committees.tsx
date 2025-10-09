@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Brain, Megaphone, Play } from "lucide-react";
+import { Brain, Megaphone, Play, Car, Palette, UserCheck, Camera, Globe, Wind, Wrench, Lightbulb } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+
 
 const Committees = () => {
   const [activeVideo, setActiveVideo] = useState(null);
