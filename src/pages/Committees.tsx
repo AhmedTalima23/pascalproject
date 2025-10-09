@@ -49,7 +49,7 @@ const Committees = () => {
       description: 'Promotes Pascal events and activities across various platforms. Develops marketing strategies, manages social media presence, and builds partnerships with other organizations.',
       responsibilities: ['Social media management', 'Event promotion', 'Partnership development', 'Brand awareness'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/reel/689435420861447'
+      videoUrl: 'https://www.facebook.com/plugins/video.php?href=<https://www.facebook.com/reel/689435420861447>'
     },
     {
       id: 6,
