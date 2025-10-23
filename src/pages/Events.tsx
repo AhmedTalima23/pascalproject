@@ -20,7 +20,7 @@ const Events = () => {
   const workshops = [
     {
       id: 1,
-      title: 'Mecha Magic 2025',
+      title: 'Mecha Magic 2027',
       year: '2025',
       date: 'February 28, 2025',
       description: 'Pascal Academy brought together over 500 engineering students from across Egypt for a full day of learning, networking, and inspiration',
