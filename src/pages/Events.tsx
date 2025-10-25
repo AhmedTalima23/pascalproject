@@ -285,13 +285,6 @@ const Events = () => {
                         className="bg-navy hover:bg-primary-800 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
                       >
                         View Photo Gallery
-                      </button>
-                      <button
-                        onClick={() => handleReserveTicket(event)}
-                        className="bg-white border border-gray-200 text-gray-700 font-semibold py-2 px-6 rounded-lg transition-shadow shadow-sm hover:shadow-md"
-                      >
-                        Reserve (demo)
-                      </button>
                     </div>
                   </div>
                 </div>
