@@ -192,10 +192,6 @@ const Events = () => {
     setCurrentGalleryIndex((prev) => (prev - 1 + selectedGallery.images.length) % selectedGallery.images.length);
   };
 
-  const handleReserveTicket = (event: any) => {
-    setSelectedEvent(event);
-    setIsReservationModalOpen(true);
-  };
 
   // ---------- Reusable animation props ----------
   const fadeUp = { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: -8 }, transition: { duration: 0.35 } };
@@ -285,6 +281,13 @@ const Events = () => {
                         className="bg-navy hover:bg-primary-800 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
                       >
                         View Photo Gallery
+                      </button>
+                      {/* <button
+                        onClick={() => handleReserveTicket(event)}
+                        className="bg-white border border-gray-200 text-gray-700 font-semibold py-2 px-6 rounded-lg transition-shadow shadow-sm hover:shadow-md"
+                      >
+                        Reserve (demo)
+                      </button> */}
                     </div>
                   </div>
                 </div>
