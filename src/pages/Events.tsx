@@ -355,12 +355,12 @@ const Events = () => {
                       >
                         View Gallery
                       </button>
-                      <button
+                      {/* <button
                         onClick={() => handleReserveTicket(wk)}
                         className="bg-white border border-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg"
                       >
                         Reserve (demo)
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 </div>
