@@ -77,7 +77,7 @@ const Events = () => {
       status: 'Completed',
       attendees: '450+',
       banner: '/MAIN BANNER final ver. 169.png',
-      images: ['/MAIN BANNER final ver. 169.png', '/verse.jpg', '/verse5.jpeg', '/verse4.jpg'],
+      images: ['/MAIN BANNER final ver. 169.png', '/verse.jpg', '/verse5.jpeg', '/mechaM4.jpg'],
       highlights: [
         'First-ever mechanical engineering graduation projects exhibition in Egypt',
         'Showcased innovative projects bridging creativity and industry impact'
