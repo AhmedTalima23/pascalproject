@@ -32,8 +32,11 @@ const Contact = () => {
     try {
       await fetch("/", {
         method: "POST",
-        body: new URLSearchParams(data as any).toString(),
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          "form-name": "contact",
+          ...Object.fromEntries(data),
+        }).toString(),
       });
 
       setSubmitStatus("success");
@@ -140,6 +143,14 @@ const Contact = () => {
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Send Us a Message</h2>
+
+              {/* Hidden Static Form for Netlify Recognition */}
+              <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+                <input type="text" name="name" />
+                <input type="email" name="email" />
+                <input type="text" name="subject" />
+                <textarea name="message"></textarea>
+              </form>
 
               <form
                 name="contact"
