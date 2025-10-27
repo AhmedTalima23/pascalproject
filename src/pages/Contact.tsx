@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
-import { Mail, Facebook, Phone, Instagram, LinkedinIcon } from 'lucide-react';
+import React, { useState } from "react";
+import { Mail, Facebook, Phone, Instagram, LinkedinIcon } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -24,17 +26,25 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
 
-      // Reset status after 3 seconds
-      setTimeout(() => {
-        setSubmitStatus('idle');
-      }, 3000);
-    }, 1000);
+    try {
+      await fetch("/", {
+        method: "POST",
+        body: new URLSearchParams(data as any).toString(),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      });
+
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus("idle"), 3000);
+    }
   };
 
   return (
@@ -107,7 +117,7 @@ const Contact = () => {
                   </a>
 
                   <a
-                    href="https://www.instagram.com/pascal_cairo.university?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    href="https://www.instagram.com/pascal_cairo.university"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 bg-pink-600 hover:bg-pink-700 text-white rounded-lg flex items-center justify-center transition-colors"
@@ -123,13 +133,6 @@ const Contact = () => {
                   >
                     <LinkedinIcon className="h-6 w-6" />
                   </a>
-
-                  <a
-                    href="mailto:pascal.cairo.university@gmail.com"
-                    className="w-12 h-12 bg-gray-600 hover:bg-gray-700 text-white rounded-lg flex items-center justify-center transition-colors"
-                  >
-                    <Mail className="h-6 w-6" />
-                  </a>
                 </div>
               </div>
             </div>
@@ -137,7 +140,22 @@ const Contact = () => {
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Send Us a Message</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
+
+              <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
+                className="space-y-6"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <p className="hidden">
+                  <label>
+                    Don’t fill this out if you're human: <input name="bot-field" />
+                  </label>
+                </p>
+
                 <input
                   type="text"
                   name="name"
@@ -173,17 +191,19 @@ const Contact = () => {
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 h-32"
                   required
                 />
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full bg-navy hover:bg-primary-800 text-white font-semibold py-3 px-6 rounded-lg transition-colors"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
-                {submitStatus === 'success' && (
+
+                {submitStatus === "success" && (
                   <p className="text-green-600 mt-2">Message sent successfully!</p>
                 )}
-                {submitStatus === 'error' && (
+                {submitStatus === "error" && (
                   <p className="text-red-600 mt-2">Something went wrong. Please try again.</p>
                 )}
               </form>
