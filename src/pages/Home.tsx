@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Users, Target, ArrowRight, Facebook } from 'lucide-react';
+import { Calendar, Users, Target, ArrowRight, Facebook, MapPin, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import UpcomingEventCard from '../components/UpcomingEventCard';
 import AnimatedSection from '../components/AnimatedSection';
@@ -7,7 +7,27 @@ import AnimatedSection from '../components/AnimatedSection';
 const Home = () => {
   const stats = [
     { icon: Users, label: 'Active Members', value: '150+' },
-    { icon: Calendar, label: 'Events Organized', value: '7+' },
+    { icon: Calendar, label: 'Events Organized', value: '8' },
+    // Replace Opportunities Offered stat with a creative breakdown
+    {
+      icon: Target,
+      label: (
+        <span>
+          Opportunities Offered
+          <div className="flex justify-center gap-2 mt-2">
+            <span className="inline-flex items-center px-2 py-1 bg-gold/20 text-navy rounded-full text-xs font-semibold">
+              <span className="mr-1">6</span>
+              <span className="mr-1">Field Trips</span>
+            </span>
+            <span className="inline-flex items-center px-2 py-1 bg-coral/20 text-coral rounded-full text-xs font-semibold">
+              <span className="mr-1">2</span>
+              <span>Internships</span>
+            </span>
+          </div>
+        </span>
+      ),
+      value: '',
+    },
   ];
 
   const containerVariants = {
@@ -39,7 +59,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-navy via-primary-900 to-primary-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
-        
+
         {/* Animated background elements */}
         <div className="absolute inset-0">
           <motion.div
@@ -88,6 +108,20 @@ const Home = () => {
             initial="hidden"
             animate="visible"
           >
+            {/* Add logo above the heading */}
+            <motion.div
+              className="flex justify-center mb-6"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7 }}
+            >
+              <img
+                src="/pascal new logo.png"
+                alt="Pascal CUFE Logo"
+                className="h-16 w-auto mx-auto rounded-lg shadow-lg bg-white"
+                style={{ maxWidth: '80px' }}
+              />
+            </motion.div>
             <motion.h1
               className="text-4xl md:text-6xl font-bold mb-6"
               variants={itemVariants}
@@ -95,11 +129,11 @@ const Home = () => {
               Welcome to{' '}
               <motion.span
                 className="pascal-logo relative inline-block"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.1,
                   rotate: [0, -2, 2, 0],
                 }}
-                transition={{ 
+                transition={{
                   duration: 0.5,
                   ease: 'easeInOut'
                 }}
@@ -123,7 +157,7 @@ const Home = () => {
                     {letter}
                   </motion.span>
                 ))}
-                
+
                 {/* Decorative elements around Pascal */}
                 <motion.div
                   className="absolute -top-4 -right-4 w-3 h-3 bg-coral rounded-full"
@@ -165,7 +199,7 @@ const Home = () => {
               <motion.a
                 href="/events"
                 className="inline-flex items-center px-8 py-3 bg-coral hover:bg-coral/90 text-white font-semibold rounded-lg transition-all duration-300 group hover-lift"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   boxShadow: '0 10px 30px rgba(255, 102, 99, 0.4)'
                 }}
@@ -179,7 +213,7 @@ const Home = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-8 py-3 bg-transparent border-2 border-white text-white hover:bg-white hover:text-navy font-semibold rounded-lg transition-all duration-300 hover-glow"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   boxShadow: '0 10px 30px rgba(255, 255, 255, 0.2)'
                 }}
@@ -217,15 +251,20 @@ const Home = () => {
                 >
                   <stat.icon className="h-8 w-8 text-navy" />
                 </motion.div>
-                <motion.div
-                  className="text-3xl font-bold text-gray-900 mb-2"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ delay: index * 0.2, type: 'spring', stiffness: 200 }}
-                  viewport={{ once: true }}
-                >
-                  {stat.value}
-                </motion.div>
+                {/* Opportunities Offered stat: show creative breakdown, others show value */}
+                {index < 2 ? (
+                  <motion.div
+                    className="text-3xl font-bold text-gray-900 mb-2"
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    transition={{ delay: index * 0.2, type: 'spring', stiffness: 200 }}
+                    viewport={{ once: true }}
+                  >
+                    {stat.value}
+                  </motion.div>
+                ) : (
+                  <div className="mb-2" />
+                )}
                 <div className="text-gray-600">{stat.label}</div>
               </motion.div>
             ))}
@@ -309,7 +348,7 @@ const Home = () => {
               </motion.div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Impactful Events</h3>
               <p className="text-gray-600">
-                Organizing meaningful events, workshops, and community service projects 
+                Organizing meaningful events, workshops, and community service projects
                 that create lasting positive impact.
               </p>
             </motion.div>
@@ -317,30 +356,111 @@ const Home = () => {
         </div>
       </AnimatedSection>
 
-      {/* Upcoming Event Highlight */}
-      <AnimatedSection className="py-16 bg-white">
+      {/* Featured Event (replaces previous Upcoming Event Highlight) */}
+      <AnimatedSection className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Upcoming Event
-            </h2>
-            <p className="text-xl text-gray-600">
-              Don't miss our next exciting event!
-            </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            viewport={{ once: true }}
-          >
-            <UpcomingEventCard />
+            {/* Left: Banner with badges */}
+            <motion.div
+              className="relative rounded-2xl overflow-hidden shadow-2xl"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img
+                src="/MAIN BANNER final ver. 169.png"
+                alt="Featured Event Banner"
+                className="w-full h-80 object-cover md:h-[460px]"
+              />
+
+              {/* Small ribbon */}
+              <div className="absolute top-4 left-4 bg-navy text-white px-3 py-1 rounded-md text-sm font-semibold">
+                Featured
+              </div>
+
+              {/* Date & stats badges */}
+              <div className="absolute right-4 bottom-4 flex flex-col sm:flex-row gap-3">
+                <div className="bg-gold text-navy px-3 py-1 rounded-full text-sm font-semibold shadow">
+                  Feb 8, 2025
+                </div>
+                <div className="bg-coral text-white px-3 py-1 rounded-full text-sm font-semibold shadow">
+                  450+ Attendees
+                </div>
+              </div>
+
+              {/* subtle overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
+            </motion.div>
+
+            {/* Right: Details + CTAs */}
+            <motion.div
+              initial={{ opacity: 0, x: 8 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                Mecha Verse 2025 — Graduation Projects Exhibition
+              </h2>
+              <p className="text-gray-600 mb-6 max-w-xl">
+                A premier showcase where graduating teams present their capstone mechanical engineering projects.
+                Connect with industry mentors, explore hands-on demos, and discover recruitment and collaboration opportunities.
+              </p>
+
+              <div className="grid grid-cols-3 gap-4 mb-6">
+                <div className="flex items-start gap-3">
+                  <Calendar className="h-5 w-5 text-navy mt-1" />
+                  <div>
+                    <div className="text-sm text-gray-500">Date</div>
+                    <div className="font-semibold">Feb 8, 2025</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 text-navy mt-1" />
+                  <div>
+                    <div className="text-sm text-gray-500">Location</div>
+                    <div className="font-semibold">CUFE Campus — Main Hall</div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Users className="h-5 w-5 text-navy mt-1" />
+                  <div>
+                    <div className="text-sm text-gray-500">Attendees</div>
+                    <div className="font-semibold">450+</div>
+                  </div>
+                </div>
+              </div>
+
+              <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6 max-w-xl">
+                <li>Live demonstrations of mechanical capstone projects.</li>
+                <li>Workshops & mentorship sessions led by industry experts.</li>
+                <li>Networking opportunities with partner companies.</li>
+              </ul>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="/events"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-navy text-white font-semibold rounded-lg hover:bg-primary-800 transition-all"
+                >
+                  View Gallery
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-navy text-navy rounded-lg hover:bg-navy hover:text-white transition-all"
+                >
+                  Reserve Your Spot
+                </a>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </AnimatedSection>

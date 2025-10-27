@@ -56,11 +56,11 @@ const Header = () => {
   return (
     <motion.header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-lg' 
+        isScrolled
+          ? 'bg-white/95 backdrop-blur-md shadow-lg'
           : 'bg-white shadow-lg'
       }`}
-      variants={headerVariants}
+      // variants={headerVariants}
       initial="initial"
       animate="animate"
     >
@@ -68,18 +68,24 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 group">
+            {/* Replace icon with logo image */}
             <motion.div
-              className="bg-navy p-2 rounded-lg group-hover:bg-primary-800 transition-colors"
-              whileHover={{ scale: 1.1, rotate: 5 }}
+              className="flex items-center"
+              whileHover={{ scale: 1.05, rotate: 2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Users className="h-6 w-6 text-white" />
+              <img
+                src="/pascal new logo.png"
+                alt="Pascal CUFE Logo"
+                className="h-10 w-auto rounded-lg shadow-md bg-white"
+                style={{ maxWidth: '48px' }}
+              />
             </motion.div>
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              <h1 className="text-xl font-bold text-gray-900">Pascal</h1>
+              <h1 className="text-xl font-bold text-gray-900">Pascal - Cairo University</h1>
               <p className="text-xs text-gray-600">CUFE</p>
             </motion.div>
           </Link>

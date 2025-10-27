@@ -64,7 +64,7 @@ const About = () => {
           <div className="absolute top-10 left-10 w-32 h-32 bg-gold rounded-full opacity-20" />
           <div className="absolute bottom-10 right-10 w-24 h-24 bg-coral rounded-full opacity-20" />
         </motion.div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.h1
             className="text-4xl md:text-5xl font-bold mb-6"
@@ -80,7 +80,7 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
-            Discover our story, mission, and the passionate community behind Pascal CUFE
+            Discover our story, mission, and the passionate community behind Pascal - Cairo University
           </motion.p>
         </div>
       </section>
@@ -103,8 +103,8 @@ const About = () => {
                   transition={{ delay: 0.2, duration: 0.6 }}
                   viewport={{ once: true }}
                 >
-                  Pascal Academy Founded in 2020 at Cairo University
-                  Faculty of Engineering , Pascal Academy is a pioneering
+                  Pascal - Cairo University Founded in 2020 at Cairo University
+                  Faculty of Engineering , pascal - Cairo University is a pioneering
                   student-led initiative under the supervision of Prof.
                   Emad El-Kashef, head of the Central Workshops and
                   the Development Research & Technological Planning
@@ -204,7 +204,7 @@ const About = () => {
           <div className="absolute top-10 left-10 w-32 h-32 bg-gold rounded-full" />
           <div className="absolute bottom-10 right-10 w-24 h-24 bg-coral rounded-full" />
         </motion.div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.h2
             className="text-3xl md:text-4xl font-bold mb-4"
@@ -222,7 +222,7 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Ready to make an impact? Connect with us and be part of our mission to create 
+            Ready to make an impact? Connect with us and be part of our mission to create
             positive change in the CUFE community.
           </motion.p>
           <motion.div
@@ -233,12 +233,12 @@ const About = () => {
             viewport={{ once: true }}
           >
             <motion.a
-              href="/events"
+              href="/committees"
               className="inline-flex items-center px-8 py-3 bg-coral hover:bg-coral/90 text-white font-semibold rounded-lg transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Attend Our Events
+              Our Committees
             </motion.a>
             <motion.a
               href="/contact"

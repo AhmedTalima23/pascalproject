@@ -26,7 +26,7 @@ const Partners = () => {
     { id: 19, name: 'learnu', logo: '/partners/learnu.jpeg' },
   ];
 
-  
+
   const duplicatedPartners = [...partners, ...partners];
 
   const containerVariants = {
@@ -197,9 +197,10 @@ const Partners = () => {
               <div className="w-12 h-12 bg-gold rounded-lg flex items-center justify-center mb-4">
                 <span className="text-white text-2xl">💡</span>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Innovation Collaboration</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Brand Visibility</h3>
               <p className="text-gray-600">
-                Co-create innovative solutions and research projects that advance engineering excellence and technological development.
+                Showcase our partner brand among the future engineers
+                make interactive sessions and activities to meet the students with the partner company
               </p>
             </motion.div>
 
@@ -250,7 +251,7 @@ const Partners = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Interested in collaborating with Pascal Academy? Join our growing network of partners driving innovation and learning opportunities.
+            Interested in collaborating with Pascal - Cairo University? Join our growing network of partners driving innovation and learning opportunities.
           </motion.p>
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center"

@@ -41,7 +41,7 @@ const Committees = () => {
       name: 'HR Committee',
       icon: UserCheck,
       description: 'Manages human resources and member relations within Pascal. Handles recruitment, member development, team building activities, and maintains a positive organizational culture.',
-      responsibilities: ['Member recruitment', 'Team development', 'Conflict resolution', 'Performance evaluation'],
+      responsibilities: ['Recruitment & Onboarding', 'Team Building & Engagement', 'Member Support', 'Performance & Development Tracking'],
       image: '/committee-placeholder.jpg',
       videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/767206849643558'
     },

@@ -56,7 +56,7 @@ const Events = () => {
       year: '2025',
       date: 'February 28, 2025',
       description:
-        'Pascal Academy brought together over 500 engineering students from across Egypt for a full day of learning, networking, and inspiration.',
+        'Pascal-CU brought together over 500 engineering students from across Egypt for a full day of learning, networking, and inspiration.',
       status: 'Completed',
       attendees: '500+',
       banner: '/m.jpg',

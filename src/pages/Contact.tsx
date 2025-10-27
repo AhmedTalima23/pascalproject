@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Facebook, Phone, Instagram } from 'lucide-react';
+import { Mail, Facebook, Phone, Instagram, LinkedinIcon } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -23,13 +23,13 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
-      
+
       // Reset status after 3 seconds
       setTimeout(() => {
         setSubmitStatus('idle');
@@ -44,7 +44,7 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
           <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
-            Get in touch with the Pascal team. We'd love to hear from you!
+            Get in touch with Pascal team. We'd love to hear from you!
           </p>
         </div>
       </section>
@@ -56,7 +56,7 @@ const Contact = () => {
             {/* Contact Information */}
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Get in Touch</h2>
-              
+
               <div className="space-y-6">
                 {/* Email */}
                 <div className="flex items-start space-x-4">
@@ -66,10 +66,10 @@ const Contact = () => {
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">Email Us</h3>
                     <a
-                      href="mailto:youssefhassanm3@gmail.com"
+                      href="mailto:pascal.cairo.university@gmail.com"
                       className="text-gray-600 hover:underline"
                     >
-                      youssefhassanm3@gmail.com
+                      pascal.cairo.university@gmail.com
                     </a>
                   </div>
                 </div>
@@ -107,7 +107,7 @@ const Contact = () => {
                   </a>
 
                   <a
-                    href="https://www.instagram.com/pascal_academy25?utm_source=ig_web_button_share_sheet&igsh=MXRkZXMzMzA0bGx3bA=="
+                    href="https://www.instagram.com/pascal_cairo.university?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 bg-pink-600 hover:bg-pink-700 text-white rounded-lg flex items-center justify-center transition-colors"
@@ -116,7 +116,16 @@ const Contact = () => {
                   </a>
 
                   <a
-                    href="mailto:youssefhassanm3@gmail.com"
+                    href="https://www.linkedin.com/company/pascalacademy100/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex items-center justify-center transition-colors"
+                  >
+                    <LinkedinIcon className="h-6 w-6" />
+                  </a>
+
+                  <a
+                    href="mailto:pascal.cairo.university@gmail.com"
                     className="w-12 h-12 bg-gray-600 hover:bg-gray-700 text-white rounded-lg flex items-center justify-center transition-colors"
                   >
                     <Mail className="h-6 w-6" />
