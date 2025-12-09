@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Users, Brain, Car, Palette, UserCheck, Megaphone, Camera, Globe, Wind, Wrench, Lightbulb, Play, X, ChevronDown
 } from 'lucide-react';
@@ -9,6 +9,9 @@ const Committees = () => {
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
   const [expandedMobile, setExpandedMobile] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [cardPosition, setCardPosition] = useState<number>(0);
+  const cardRefs = useRef<{ [key: number]: HTMLDivElement | null }>({});
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Track screen size changes
   useEffect(() => {
@@ -18,6 +21,18 @@ const Committees = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Scroll to modal position after it opens
+  useEffect(() => {
+    if (playingVideo !== null && containerRef.current) {
+      setTimeout(() => {
+        containerRef.current?.scroll({
+          top: cardPosition,
+          behavior: 'smooth',
+        });
+      }, 100);
+    }
+  }, [playingVideo, cardPosition]);
 
   const committees = [
     {
@@ -130,6 +145,12 @@ const Committees = () => {
   };
 
   const handlePlayVideo = (id: number) => {
+    // Get the position of the clicked card
+    const cardElement = cardRefs.current[id];
+    if (cardElement) {
+      const cardRect = cardElement.getBoundingClientRect();
+      setCardPosition(window.scrollY + cardRect.top - 20);
+    }
     setPlayingVideo(id);
   };
 
@@ -185,6 +206,9 @@ const Committees = () => {
             {committees.map((committee) => (
               <motion.div
                 key={committee.id}
+                ref={(el) => {
+                  if (el) cardRefs.current[committee.id] = el;
+                }}
                 className="bg-white rounded-lg sm:rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
                 variants={itemVariants}
                 whileHover={{ y: isMobile ? 0 : -8 }}
@@ -321,7 +345,7 @@ const Committees = () => {
         </div>
       </AnimatedSection>
 
-      {/* Video Modal - Scrollable with Page */}
+      {/* Video Modal - Appears at Clicked Card Position */}
       <AnimatePresence>
         {playingVideo !== null && (
           <motion.div
@@ -329,19 +353,26 @@ const Committees = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md pointer-events-auto"
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md pointer-events-auto overflow-hidden"
             onClick={handleCloseVideo}
           >
-            {/* Scrollable Container - Allows full page scroll while modal is open */}
-            <div className="relative w-full min-h-screen overflow-y-auto">
-              {/* Top padding to center modal at initial view */}
+            {/* Scrollable Container with video positioned at card location */}
+            <div
+              ref={containerRef}
+              className="relative w-full h-full overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Spacer to position video at the clicked card */}
+              <div style={{ height: `${cardPosition}px` }} />
+
+              {/* Video Modal Container */}
               <div className="flex flex-col items-center justify-center py-8 sm:py-12 min-h-screen">
                 <motion.div
                   initial={{ scale: 0.85, opacity: 0, y: 20 }}
                   animate={{ scale: 1, opacity: 1, y: 0 }}
                   exit={{ scale: 0.85, opacity: 0, y: 20 }}
                   transition={{ duration: 0.3, type: 'spring', damping: 25 }}
-                  className="relative w-full bg-black rounded-lg sm:rounded-2xl shadow-2xl overflow-hidden sticky top-8 sm:top-12"
+                  className="relative w-full bg-black rounded-lg sm:rounded-2xl shadow-2xl overflow-hidden"
                   style={{
                     maxWidth: isMobile ? 'calc(100vw - 2rem)' : 'min(800px, calc(100vw - 4rem))',
                     aspectRatio: isMobile ? '9/16' : '16/9',
@@ -372,6 +403,9 @@ const Committees = () => {
                   />
                 </motion.div>
               </div>
+
+              {/* Bottom padding for scrolling */}
+              <div className="h-screen" />
             </div>
           </motion.div>
         )}
