@@ -13,6 +13,7 @@ type FieldTripItem = {
   images: string[];
 };
 
+
 type WorkshopItem = {
   id: number;
   title: string;
