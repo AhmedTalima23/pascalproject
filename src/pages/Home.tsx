@@ -420,11 +420,11 @@ const Home = () => {
 
                   {/* Content Overlay */}
                   <div className="relative z-10 text-center">
-                    <motion.div
+                    {/* <motion.div
                       className="inline-block"
                       animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 7, repeat: Infinity }}
-                    >
+                      transition={{ duration: 7, repeat: Infinity }} */}
+                    {/* > */}
                       <img
                         src="/sponsor/rocol.png"
                         alt="ROCOL Egypt Logo"
@@ -433,7 +433,7 @@ const Home = () => {
                           e.currentTarget.style.display = 'none';
                         }}
                       />
-                    </motion.div>
+                    {/* </motion.div> */}
                     <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">ROCOL Egypt</h3>
                     <p className="text-gold text-lg font-semibold">Annual Partnership 2025</p>
                   </div>
