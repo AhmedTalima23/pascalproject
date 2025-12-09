@@ -63,7 +63,7 @@ const Committees = () => {
       description: 'Promotes Pascal events and activities across various platforms. Develops marketing strategies, manages social media presence, and builds partnerships with other organizations.',
       responsibilities: ['Social media management', 'Event promotion', 'Partnership development', 'Brand awareness'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.youtube.com/embed/MARKETING_VIDEO_ID'
+      videoUrl: 'https://www.facebook.com/reel/689435420861447'
     },
     {
       id: 6,
@@ -90,7 +90,7 @@ const Committees = () => {
       description: 'Specializes in Computational Fluid Dynamics and simulation technologies. Conducts CFD analysis, organizes simulation workshops, and works on fluid mechanics projects.',
       responsibilities: ['CFD analysis', 'Simulation workshops', 'Fluid mechanics projects', 'Software training'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.youtube.com/embed/CFD_VIDEO_ID'
+      videoUrl: 'https://drive.google.com/file/d/1l_9zrv3eIqP1O1IYdpluDiHvElblPrse/preview'
     },
     {
       id: 9,
@@ -99,7 +99,7 @@ const Committees = () => {
       description: 'Focuses on hydraulic and pneumatic systems in mechanical engineering. Develops projects related to fluid power systems and organizes hands-on workshops.',
       responsibilities: ['Hydraulic system design', 'Pneumatic projects', 'Fluid power workshops', 'System maintenance'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.youtube.com/embed/HYDRAULIC_VIDEO_ID'
+      videoUrl: 'https://drive.google.com/file/d/1aBboBMJfD5fMAchC0wNJ2PDYw7UIgZRp/preview'
     },
     {
       id: 10,
@@ -108,7 +108,7 @@ const Committees = () => {
       description: 'Drives research and development initiatives within Pascal. Identifies emerging technologies, conducts feasibility studies, and develops innovative solutions for engineering challenges.',
       responsibilities: ['Research projects', 'Innovation development', 'Technology assessment', 'Patent research'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.youtube.com/embed/RND_VIDEO_ID'
+      videoUrl: 'https://drive.google.com/file/d/1pxxxlo-cNrXtGRdTEq2r6jrixPnFp98S/preview'
     }
   ];
 
