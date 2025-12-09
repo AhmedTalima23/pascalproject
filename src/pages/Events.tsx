@@ -56,7 +56,7 @@ const Events = () => {
         'Pascal-CU brought together over 500 engineering students from across Egypt for a full day of learning, networking, and inspiration.',
       status: 'Completed',
       attendees: '500+',
-      banner: '/m.jpg',
+      banner: '/mechamagic.jpg',
       driveFolder: 'https://drive.google.com/drive/folders/19540fhP5FZWPudmiRx9AcWZOjw0cQoWo?usp=drive_link',
       highlights: [
         'Participation from 13+ student activities and organizations',
@@ -91,8 +91,8 @@ const Events = () => {
       description:
         'A practical workshop that teaches 3D modeling, mechanical design, and digital prototyping using professional engineering software.',
       status: 'Completed',
-      attendees: '500+',
-      banner: '/m.jpg',
+      attendees: '100+',
+      banner: '/workshops.jpg',
       driveFolder: 'https://drive.google.com/drive/folders/134FdiSMUEz6dJ0uR4jtbo81DIVwu6pR-?usp=drive_link',
       highlights: [
         'Participation from 13+ student activities and organizations',
@@ -108,8 +108,8 @@ const Events = () => {
       description:
         'A hands-on workshop where students learn hydraulic principles, components, and real-world applications through experiments and circuit assemblies.',
       status: 'Completed',
-      attendees: '450+',
-      banner: '/MAIN BANNER final ver. 169.png',
+      attendees: '100+',
+      banner: '/workshops.jpg',
       driveFolder: 'https://drive.google.com/drive/folders/1Onn--pRXoFyZ1v0ruHiTMZZ4zipOvIAV?usp=drive_link',
       highlights: [
         'First-ever mechanical engineering graduation projects exhibition in Egypt',
@@ -124,8 +124,8 @@ const Events = () => {
       description:
         'A practical workshop teaching fluid simulation, analysis, and optimization using Computational Fluid Dynamics software.',
       status: 'Completed',
-      attendees: '450+',
-      banner: '/MAIN BANNER final ver. 169.png',
+      attendees: '100+',
+      banner: '/workshops.jpg',
       driveFolder: 'https://drive.google.com/drive/folders/192iq39YP5puenSZvHTDmp2Zqv9n-xHPd?usp=drive_link',
       highlights: [
         'First-ever mechanical engineering graduation projects exhibition in Egypt',
@@ -140,8 +140,8 @@ const Events = () => {
       description:
         'A hands-on workshop focused on automotive engineering principles, vehicle dynamics, and engine systems.',
       status: 'Completed',
-      attendees: '450+',
-      banner: '/MAIN BANNER final ver. 169.png',
+      attendees: '100+',
+      banner: '/workshops.jpg',
       driveFolder: 'https://drive.google.com/drive/folders/1PAMTdzak6Sl58phBK4ymIaR_21vTRn8L?usp=drive_link',
       highlights: [
         'First-ever mechanical engineering graduation projects exhibition in Egypt',
@@ -215,23 +215,29 @@ const Events = () => {
       title: 'Summer Engineering Internship',
       company: 'DRIC Developed Refrigeration & Air Condition Industries Equipment Co.',
       description:
-        'A comprehensive summer internship program providing hands-on experience in mechanical engineering, working on real projects with industry professionals.',
+      'Ever wondered how massive HVAC systems that power malls, factories, and hospitals are actually built and tested ?! This is what we will see in Dric factory, Get ready for a deep dive into the world of HVAC manufacturing, where technology, design, and production meet to deliver comfort!',
       duration: 'Summer 2025 (17 August - 21 August)',
-      banner: '/inter.jpg',
+      banner: '/dric inter.jpg',
       highlights: ['Work on real engineering projects', 'Mentorship from industry experts', 'Networking opportunities', 'Certificate of completion'],
       driveFolder: 'https://drive.google.com/drive/folders/1bW4Tut_j68qKX1oFbB5drreb9QEGL4op?usp=drive_link'
     },
     {
       id: 2,
-      title: 'Summer Training Program',
+      title: 'Hybrid Refrigeration Training Program',
       company: 'AG Chem BTTRIGAS',
       description:
-        'A focused 2-week winter training program covering automation, control systems, and modern manufacturing technologies.',
+      'Participants experience on-site factory sessions and online modules, learning key topics in refrigerants: industry, applications, legislation, handling, and the refrigeration cycle. Gain hands-on technical insights while understanding sustainability and safety in modern refrigeration systems.',
       duration: 'Summer 2025 (2 weeks)',
-      banner: '/Achem.png',
-      highlights: ['Advanced technical training', 'Industry certifications', 'Practical workshops', 'Career development sessions'],
+      banner: '/agchem inter.jpg',
+      highlights: [
+        'Hybrid learning',
+        'Refrigerants industry and applications',
+        'Legislation, handling, and safety',
+        'Refrigeration cycle & energy management'
+      ],
       driveFolder: 'https://drive.google.com/drive/folders/1oBRuTDGMc2G_3YHLrsfkG6dXVuUeTeFw?usp=drive_link'
     }
+
   ];
 
   // ---------- Handlers ----------

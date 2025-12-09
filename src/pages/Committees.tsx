@@ -60,7 +60,7 @@ const Committees = () => {
       description: 'Creates visual content and branding materials for Pascal...',
       responsibilities: ['Visual branding', 'Social media graphics', 'Event materials design', 'Website graphics'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.youtube.com/embed/YOUTUBE_VIDEO_ID'
+      videoUrl: 'https://drive.google.com/file/d/1mT4R9vD3MwO73Isw-GcjOprlgykBJoAC/preview'
     },
     {
       id: 4,
@@ -69,7 +69,7 @@ const Committees = () => {
       description: 'Manages human resources and member relations within Pascal. Handles recruitment, member development, team building activities, and maintains a positive organizational culture.',
       responsibilities: ['Recruitment & Onboarding', 'Team Building & Engagement', 'Member Support', 'Performance & Development'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.youtube.com/embed/HR_VIDEO_ID'
+      videoUrl: 'https://drive.google.com/file/d/15VmfSpTydL3MIfYp7y6WVabAKIp-A5Wf/preview'
     },
     {
       id: 5,
@@ -78,7 +78,7 @@ const Committees = () => {
       description: 'Promotes Pascal events and activities across various platforms. Develops marketing strategies, manages social media presence, and builds partnerships with other organizations.',
       responsibilities: ['Social media management', 'Event promotion', 'Partnership development', 'Brand awareness'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/reel/689435420861447'
+      videoUrl: 'https://drive.google.com/file/d/1WgqtCVwIjQaz96HkSXVSXmdPiQSgsWH1/preview'
     },
     {
       id: 6,
@@ -87,7 +87,7 @@ const Committees = () => {
       description: 'Captures and documents Pascal events through photography and videography. Creates promotional videos, event highlights, and maintains a visual archive of Pascal activities.',
       responsibilities: ['Event photography', 'Video production', 'Content editing', 'Visual documentation'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.youtube.com/embed/PHOTO_VIDEO_ID'
+      videoUrl: 'https://drive.google.com/file/d/15yCyfX9wYPNTzYK-EM53wwNZ0TikMnns/preview'
     },
     {
       id: 7,
@@ -96,7 +96,7 @@ const Committees = () => {
       description: 'Manages external relations and partnerships. Builds connections with industry professionals, other student organizations, and academic institutions to expand Pascal\'s network.',
       responsibilities: ['Industry partnerships', 'Inter-university relations', 'Guest speaker coordination', 'Networking events'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.youtube.com/embed/ER_VIDEO_ID'
+      videoUrl: 'https://drive.google.com/file/d/1CqQwuRuiz2HCEw2Dh2QPvyyToV765AiI/preview'
     },
     {
       id: 8,
@@ -130,27 +130,19 @@ const Committees = () => {
 
   const containerVariants = {
     hidden: { opacity: 0 },
-<<<<<<< HEAD
-    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-=======
     visible: {
       opacity: 1,
       transition: { staggerChildren: 0.08 },
     },
->>>>>>> c73ab89bd3ca371054afe86ba72e1ed672bebd0f
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-<<<<<<< HEAD
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-=======
     visible: {
       opacity: 1,
       y: 0,
       transition: { duration: 0.5, ease: 'easeOut' },
     },
->>>>>>> c73ab89bd3ca371054afe86ba72e1ed672bebd0f
   };
 
   const handlePlayVideo = (id: number) => {
@@ -238,17 +230,11 @@ const Committees = () => {
                           src={committee.videoUrl}
                           width="100%"
                           height="100%"
-<<<<<<< HEAD
-                          style={{ border: 'none' }}
-                          allow="autoplay; encrypted-media; picture-in-picture"
-                          allowFullScreen
-=======
                           style={{ border: 'none', overflow: 'hidden' }}
                           scrolling="no"
                           frameBorder="0"
                           allowFullScreen={true}
                           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
->>>>>>> c73ab89bd3ca371054afe86ba72e1ed672bebd0f
                           title={committee.name}
                         />
                       </motion.div>
@@ -288,19 +274,11 @@ const Committees = () => {
                   </AnimatePresence>
                 </div>
 
-<<<<<<< HEAD
-                {/* Committee Info */}
-                <div className="p-6">
-                  <div className="flex items-center mb-4">
-                    <div className="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center mr-3">
-                      <committee.icon className="h-5 w-5 text-navy" />
-=======
                 {/* Committee Info - Expandable on Mobile */}
                 <div className="p-4 sm:p-5 md:p-6">
                   <div className="flex items-start gap-3 mb-3 sm:mb-4">
                     <div className="w-9 sm:w-10 h-9 sm:h-10 bg-gold/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
                       <committee.icon className="h-5 sm:h-5 w-5 sm:w-5 text-navy" />
->>>>>>> c73ab89bd3ca371054afe86ba72e1ed672bebd0f
                     </div>
                     <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900 leading-snug">{committee.name}</h3>
                   </div>
@@ -361,19 +339,6 @@ const Committees = () => {
                       ))}
                     </ul>
                   </div>
-<<<<<<< HEAD
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{committee.description}</p>
-                  <h4 className="font-semibold text-gray-900 mb-2 text-sm">Key Responsibilities:</h4>
-                  <ul className="space-y-1">
-                    {committee.responsibilities.map((resp, idx) => (
-                      <li key={idx} className="flex items-center text-xs text-gray-600">
-                        <div className="w-1.5 h-1.5 bg-navy rounded-full mr-2 flex-shrink-0"></div>
-                        {resp}
-                      </li>
-                    ))}
-                  </ul>
-=======
->>>>>>> c73ab89bd3ca371054afe86ba72e1ed672bebd0f
                 </div>
               </motion.div>
             ))}
@@ -392,30 +357,6 @@ const Committees = () => {
             className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md pointer-events-auto overflow-hidden"
             onClick={handleCloseVideo}
           >
-<<<<<<< HEAD
-            <div className="min-h-screen w-full flex items-center justify-center p-4 sm:p-6">
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0, y: 20 }}
-                animate={{ scale: 1, opacity: 1, y: 0 }}
-                exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                transition={{ duration: 0.3, type: 'spring', damping: 25 }}
-                className="relative bg-black rounded-lg sm:rounded-2xl shadow-2xl overflow-hidden mx-auto"
-                style={{ width: 'min(600px, calc(100vw - 2rem))', aspectRatio: '16/9' }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                {/* Close Button */}
-                <motion.button
-                  className="absolute top-3 right-3 z-10 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-all duration-300 shadow-lg"
-                  onClick={() => setPlayingVideo(null)}
-                  whileHover={{ scale: 1.1, rotate: 90 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <X className="h-5 w-5 sm:h-6 sm:w-6" />
-                </motion.button>
-
-                {/* Video Embed */}
-                <div className="w-full h-full">
-=======
             {/* Scrollable Container with video positioned at card location */}
             <div
               ref={containerRef}
@@ -451,19 +392,10 @@ const Committees = () => {
                   </motion.button>
 
                   {/* Video Embed */}
->>>>>>> c73ab89bd3ca371054afe86ba72e1ed672bebd0f
                   <iframe
                     src={committees.find(c => c.id === playingVideo)?.videoUrl}
                     className="w-full h-full"
                     style={{ border: 'none' }}
-<<<<<<< HEAD
-                    allow="autoplay; encrypted-media; picture-in-picture"
-                    allowFullScreen
-                    title="Committee Video"
-                  />
-                </div>
-              </motion.div>
-=======
                     scrolling="yes"
                     frameBorder="0"
                     allowFullScreen={true}
@@ -475,7 +407,6 @@ const Committees = () => {
 
               {/* Bottom padding for scrolling */}
               <div className="h-screen" />
->>>>>>> c73ab89bd3ca371054afe86ba72e1ed672bebd0f
             </div>
           </motion.div>
         )}
