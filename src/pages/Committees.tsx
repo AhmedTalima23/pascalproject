@@ -13,110 +13,40 @@ const Committees = () => {
       id: 1,
       name: 'AI & ML Committee',
       icon: Brain,
-      description: 'Focuses on artificial intelligence and machine learning applications in engineering. Develops AI-driven solutions, conducts research on emerging technologies, and organizes workshops on data science and automation.',
+      description: 'Focuses on artificial intelligence and machine learning applications in engineering...',
       responsibilities: ['AI research and development', 'Machine learning workshops', 'Data analysis projects', 'Automation solutions'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/examplevideo'
+      videoUrl: 'https://drive.google.com/file/d/1jcIY87oq-RbTNHToeBt6VarhzY_csyxD/preview'
     },
     {
       id: 2,
       name: 'Automotive Committee',
       icon: Car,
-      description: 'Dedicated to automotive engineering and vehicle technology. Works on automotive projects, organizes car shows, and connects students with automotive industry professionals.',
+      description: 'Dedicated to automotive engineering and vehicle technology...',
       responsibilities: ['Vehicle design projects', 'Automotive workshops', 'Industry partnerships', 'Racing team support'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/examplevideo'
+      videoUrl: 'https://drive.google.com/file/d/FILE_ID/preview'
     },
     {
       id: 3,
       name: 'Graphic Design Committee',
       icon: Palette,
-      description: 'Creates visual content and branding materials for Pascal. Designs posters, social media content, presentations, and maintains the visual identity of all Pascal activities.',
+      description: 'Creates visual content and branding materials for Pascal...',
       responsibilities: ['Visual branding', 'Social media graphics', 'Event materials design', 'Website graphics'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/1922256062001660'
-    },
-    {
-      id: 4,
-      name: 'HR Committee',
-      icon: UserCheck,
-      description: 'Manages human resources and member relations within Pascal. Handles recruitment, member development, team building activities, and maintains a positive organizational culture.',
-      responsibilities: ['Recruitment & Onboarding', 'Team Building & Engagement', 'Member Support', 'Performance & Development Tracking'],
-      image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/767206849643558'
-    },
-    {
-      id: 5,
-      name: 'Marketing Committee',
-      icon: Megaphone,
-      description: 'Promotes Pascal events and activities across various platforms. Develops marketing strategies, manages social media presence, and builds partnerships with other organizations.',
-      responsibilities: ['Social media management', 'Event promotion', 'Partnership development', 'Brand awareness'],
-      image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/689435420861447'
-
-    },
-    {
-      id: 6,
-      name: 'Photography & Video Editing Committee',
-      icon: Camera,
-      description: 'Captures and documents Pascal events through photography and videography. Creates promotional videos, event highlights, and maintains a visual archive of Pascal activities.',
-      responsibilities: ['Event photography', 'Video production', 'Content editing', 'Visual documentation'],
-      image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/1314332460328483'
-    },
-    {
-      id: 7,
-      name: 'ER Committee',
-      icon: Globe,
-      description: 'Manages external relations and partnerships. Builds connections with industry professionals, other student organizations, and academic institutions to expand Pascal\'s network.',
-      responsibilities: ['Industry partnerships', 'Inter-university relations', 'Guest speaker coordination', 'Networking events'],
-      image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/reel/1454837409135099'
-    },
-    {
-      id: 8,
-      name: 'CFD Committee',
-      icon: Wind,
-      description: 'Specializes in Computational Fluid Dynamics and simulation technologies. Conducts CFD analysis, organizes simulation workshops, and works on fluid mechanics projects.',
-      responsibilities: ['CFD analysis', 'Simulation workshops', 'Fluid mechanics projects', 'Software training'],
-      image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/examplevideo'
-    },
-    {
-      id: 9,
-      name: 'Hydraulic & Pneumatic Committee',
-      icon: Wrench,
-      description: 'Focuses on hydraulic and pneumatic systems in mechanical engineering. Develops projects related to fluid power systems and organizes hands-on workshops.',
-      responsibilities: ['Hydraulic system design', 'Pneumatic projects', 'Fluid power workshops', 'System maintenance'],
-      image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/examplevideo'
-    },
-    {
-      id: 10,
-      name: 'R&D Committee',
-      icon: Lightbulb,
-      description: 'Drives research and development initiatives within Pascal. Identifies emerging technologies, conducts feasibility studies, and develops innovative solutions for engineering challenges.',
-      responsibilities: ['Research projects', 'Innovation development', 'Technology assessment', 'Patent research'],
-      image: '/committee-placeholder.jpg',
-      videoUrl: 'https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/examplevideo'
+      videoUrl: 'https://www.youtube.com/embed/YOUTUBE_VIDEO_ID'
     }
+    // Add more committees...
   ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: 'easeOut' },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
   };
 
   return (
@@ -176,11 +106,10 @@ const Committees = () => {
                           src={committee.videoUrl}
                           width="100%"
                           height="100%"
-                          style={{ border: 'none', overflow: 'hidden' }}
-                          scrolling="no"
-                          frameBorder="0"
-                          allowFullScreen={true}
-                          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                          style={{ border: 'none' }}
+                          allow="autoplay; encrypted-media; picture-in-picture"
+                          allowFullScreen
+                          title={committee.name}
                         />
                       </motion.div>
                     ) : (
@@ -216,6 +145,7 @@ const Committees = () => {
                   </AnimatePresence>
                 </div>
 
+                {/* Committee Info */}
                 <div className="p-6">
                   <div className="flex items-center mb-4">
                     <div className="w-10 h-10 bg-gold/20 rounded-lg flex items-center justify-center mr-3">
@@ -223,9 +153,7 @@ const Committees = () => {
                     </div>
                     <h3 className="text-xl font-bold text-gray-900">{committee.name}</h3>
                   </div>
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                    {committee.description}
-                  </p>
+                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{committee.description}</p>
                   <h4 className="font-semibold text-gray-900 mb-2 text-sm">Key Responsibilities:</h4>
                   <ul className="space-y-1">
                     {committee.responsibilities.map((resp, idx) => (
@@ -260,10 +188,7 @@ const Committees = () => {
                 exit={{ scale: 0.9, opacity: 0, y: 20 }}
                 transition={{ duration: 0.3, type: 'spring', damping: 25 }}
                 className="relative bg-black rounded-lg sm:rounded-2xl shadow-2xl overflow-hidden mx-auto"
-                style={{
-                  width: 'min(400px, calc(100vw - 2rem))',
-                  aspectRatio: '9/16',
-                }}
+                style={{ width: 'min(600px, calc(100vw - 2rem))', aspectRatio: '16/9' }}
                 onClick={(e) => e.stopPropagation()}
               >
                 {/* Close Button */}
@@ -276,17 +201,17 @@ const Committees = () => {
                   <X className="h-5 w-5 sm:h-6 sm:w-6" />
                 </motion.button>
 
-                {/* Facebook Reel */}
-                <iframe
-                  src={committees.find(c => c.id === playingVideo)?.videoUrl}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 'none' }}
-                  scrolling="yes"
-                  frameBorder="0"
-                  allowFullScreen={true}
-                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                />
+                {/* Video Embed */}
+                <div className="w-full h-full">
+                  <iframe
+                    src={committees.find(c => c.id === playingVideo)?.videoUrl}
+                    className="w-full h-full"
+                    style={{ border: 'none' }}
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowFullScreen
+                    title="Committee Video"
+                  />
+                </div>
               </motion.div>
             </div>
           </motion.div>
