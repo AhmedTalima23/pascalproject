@@ -417,18 +417,18 @@ const Home = () => {
                     animate={{ y: [0, 10, 0] }}
                     transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
                   />
-                  
+
                   {/* Content Overlay */}
                   <div className="relative z-10 text-center">
                     <motion.div
                       className="inline-block"
                       animate={{ scale: [1, 1.1, 1] }}
-                      transition={{ duration: 3, repeat: Infinity }}
+                      transition={{ duration: 7, repeat: Infinity }}
                     >
                       <img
-                        src="/sponsors/rocol-logo.png"
+                        src="/sponsor/1.jpg"
                         alt="ROCOL Egypt Logo"
-                        className="h-32 w-auto mx-auto mb-6"
+                        className="h-64 w-auto mx-auto mb-6 rounded-lg shadow-lg bg-white"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none';
                         }}
@@ -437,30 +437,6 @@ const Home = () => {
                     <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">ROCOL Egypt</h3>
                     <p className="text-gold text-lg font-semibold">Annual Partnership 2025</p>
                   </div>
-                </div>
-
-                {/* Info Badges */}
-                <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-3">
-                  <motion.div
-                    className="bg-white/95 backdrop-blur px-4 py-3 rounded-lg shadow-lg"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7 }}
-                    viewport={{ once: true }}
-                  >
-                    <p className="text-sm text-gray-600 font-semibold uppercase">Parent Company</p>
-                    <p className="text-gray-900 font-bold">Atlantic International Corporation</p>
-                  </motion.div>
-                  <motion.div
-                    className="bg-gold/90 text-white px-4 py-3 rounded-lg shadow-lg"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8 }}
-                    viewport={{ once: true }}
-                  >
-                    <p className="text-sm font-semibold uppercase">Signed This Week</p>
-                    <p className="text-white font-bold">Contract Officially Executed</p>
-                  </motion.div>
                 </div>
               </motion.div>
             </motion.div>

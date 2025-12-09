@@ -8,14 +8,14 @@ const Sponsors = () => {
     {
       id: 1,
       name: 'ROCOL Egypt',
-      logo: '/sponsors/rocol-logo.png',
+      logo: '/sponsor/4.jpg',
       category: 'Annual Sponsor',
       description: 'Globally known for speciality lubrication and maintenance solutions, supporting industries with high-performance products that keep machines running at their best.',
       parentCompany: 'Atlantic International Corporation',
       vicePresident: 'Anas Alryan',
       ceo: 'Amr Elzaky',
-      signingDate: 'This week',
-      image: '/sponsors/rocol-banner.jpg',
+      signingDate: 'December 4, 2025',
+      image: '/sponsor/2.jpg',
       features: [
         'Technical exposure to industry leaders',
         'Industry partnerships and collaborations',
@@ -133,17 +133,16 @@ const Sponsors = () => {
                   variants={itemVariants}
                 >
                   {/* Logo Display */}
-                  <div className="bg-gray-50 rounded-2xl p-8 flex items-center justify-center h-64">
+                  <div className="bg-gray-100 rounded-2xl p-8 flex items-center justify-center h-100 border border-gray-200">
                     <img
                       src={sponsor.logo}
                       alt={sponsor.name}
-                      className="max-w-full max-h-full object-contain"
+                      className="max-h-100 max-w-full object-contain mx-auto rounded-lg"
                       onError={(e) => {
-                        e.currentTarget.src = 'https://via.placeholder.com/300x200?text=ROCOL+Egypt';
+                        e.currentTarget.src = '/1.jpg';
                       }}
                     />
                   </div>
-
                   {/* Executive Info Card */}
                   <div className="bg-gradient-to-br from-navy/5 to-navy/10 rounded-xl p-6 border border-navy/20">
                     <h3 className="text-lg font-bold text-gray-900 mb-4">Partnership Highlights</h3>
