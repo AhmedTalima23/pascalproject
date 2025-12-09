@@ -323,7 +323,7 @@ const Committees = () => {
         </div>
       </AnimatedSection>
 
-      {/* Video Modal - Fully Responsive */}
+      {/* Video Modal - Positioned at User's Standing Position */}
       <AnimatePresence>
         {playingVideo !== null && (
           <motion.div
@@ -331,44 +331,53 @@ const Committees = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-md p-4"
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md overflow-y-auto"
+            style={{
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+            }}
             onClick={handleCloseVideo}
           >
-            <motion.div
-              initial={{ scale: 0.85, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.85, opacity: 0, y: 20 }}
-              transition={{ duration: 0.3, type: 'spring', damping: 25 }}
-              className="relative w-full bg-black rounded-lg sm:rounded-2xl shadow-2xl overflow-hidden"
-              style={{
-                maxWidth: isMobile ? 'calc(100vw - 2rem)' : 'min(800px, calc(100vw - 4rem))',
-                aspectRatio: isMobile ? '9/16' : '16/9',
-              }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Close Button */}
-              <motion.button
-                className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 w-9 sm:w-10 h-9 sm:h-10 bg-white/20 hover:bg-white/40 rounded-full flex items-center justify-center text-white transition-all duration-200 shadow-lg"
-                onClick={handleCloseVideo}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                aria-label="Close video modal"
+            {/* Container that positions modal at user's scroll/view position */}
+            <div className="min-h-screen w-full flex flex-col items-center justify-center py-8 sm:py-12">
+              <motion.div
+                initial={{ scale: 0.85, opacity: 0, y: 20 }}
+                animate={{ scale: 1, opacity: 1, y: 0 }}
+                exit={{ scale: 0.85, opacity: 0, y: 20 }}
+                transition={{ duration: 0.3, type: 'spring', damping: 25 }}
+                className="relative w-full bg-black rounded-lg sm:rounded-2xl shadow-2xl overflow-hidden"
+                style={{
+                  maxWidth: isMobile ? 'calc(100vw - 2rem)' : 'min(800px, calc(100vw - 4rem))',
+                  aspectRatio: isMobile ? '9/16' : '16/9',
+                }}
+                onClick={(e) => e.stopPropagation()}
               >
-                <X className="h-5 sm:h-6 w-5 sm:w-6" strokeWidth={2.5} />
-              </motion.button>
+                {/* Close Button */}
+                <motion.button
+                  className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 w-9 sm:w-10 h-9 sm:h-10 bg-white/20 hover:bg-white/40 rounded-full flex items-center justify-center text-white transition-all duration-200 shadow-lg"
+                  onClick={handleCloseVideo}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  aria-label="Close video modal"
+                >
+                  <X className="h-5 sm:h-6 w-5 sm:w-6" strokeWidth={2.5} />
+                </motion.button>
 
-              {/* Video Embed */}
-              <iframe
-                src={committees.find(c => c.id === playingVideo)?.videoUrl}
-                className="w-full h-full"
-                style={{ border: 'none' }}
-                scrolling="yes"
-                frameBorder="0"
-                allowFullScreen={true}
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                title="Committee Video"
-              />
-            </motion.div>
+                {/* Video Embed */}
+                <iframe
+                  src={committees.find(c => c.id === playingVideo)?.videoUrl}
+                  className="w-full h-full"
+                  style={{ border: 'none' }}
+                  scrolling="yes"
+                  frameBorder="0"
+                  allowFullScreen={true}
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  title="Committee Video"
+                />
+              </motion.div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
