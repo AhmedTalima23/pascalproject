@@ -10,9 +10,8 @@ type FieldTripItem = {
   date: string;
   description: string;
   banner: string;
-  images: string[];
+  driveFolder: string;
 };
-
 
 type WorkshopItem = {
   id: number;
@@ -23,7 +22,7 @@ type WorkshopItem = {
   status: string;
   attendees: string;
   banner: string;
-  images: string[];
+  driveFolder: string;
   highlights?: string[];
 };
 
@@ -35,21 +34,18 @@ type InternshipItem = {
   duration: string;
   banner: string;
   highlights: string[];
+  driveFolder: string;
 };
 
 const Events = () => {
-  // Lightbox / gallery state
-  const [selectedGallery, setSelectedGallery] = useState<{ images: string[]; title: string } | null>(null);
-  const [currentGalleryIndex, setCurrentGalleryIndex] = useState(0);
-
-  // Accordion state for Field Trips
-  const [expandedFieldTrip, setExpandedFieldTrip] = useState<number | null>(null);
-
   // Optional ticket modal (kept for compatibility)
   const [selectedEvent, setSelectedEvent] = useState<any>(null);
   const [isReservationModalOpen, setIsReservationModalOpen] = useState(false);
 
-  // ---------- Data (placeholders & your existing events) ----------
+  // Accordion state for Field Trips
+  const [expandedFieldTrip, setExpandedFieldTrip] = useState<number | null>(null);
+
+  // ---------- Data ----------
   const events: WorkshopItem[] = [
     {
       id: 1,
@@ -61,7 +57,7 @@ const Events = () => {
       status: 'Completed',
       attendees: '500+',
       banner: '/m.jpg',
-      images: ['/m.jpg', '/mechaM.jpg', '/mechaM2.jpg', '/mechaM3.jpg'],
+      driveFolder: 'https://drive.google.com/drive/folders/19540fhP5FZWPudmiRx9AcWZOjw0cQoWo?usp=drive_link',
       highlights: [
         'Participation from 13+ student activities and organizations',
         'Guest Speakers: 8 industry-leading experts',
@@ -78,7 +74,7 @@ const Events = () => {
       status: 'Completed',
       attendees: '450+',
       banner: '/MAIN BANNER final ver. 169.png',
-      images: ['/MAIN BANNER final ver. 169.png', '/verse.jpg', '/verse5.jpeg', '/mechaM4.jpg'],
+      driveFolder: 'https://drive.google.com/drive/folders/1Zag9IPU6tBbjx02ZKfOCmYRR-bYzpowp?usp=drive_link',
       highlights: [
         'First-ever mechanical engineering graduation projects exhibition in Egypt',
         'Showcased innovative projects bridging creativity and industry impact'
@@ -87,65 +83,129 @@ const Events = () => {
   ];
 
   const workshops: WorkshopItem[] = [
-    // reusing the same two workshops (keeps the requested duplicates)
-    ...events
+        {
+      id: 1,
+      title: 'Mechanical Design Workshop - 2025',
+      year: '2025',
+      date: 'February 3, 2025',
+      description:
+        'A practical workshop that teaches 3D modeling, mechanical design, and digital prototyping using professional engineering software.',
+      status: 'Completed',
+      attendees: '500+',
+      banner: '/m.jpg',
+      driveFolder: 'https://drive.google.com/drive/folders/134FdiSMUEz6dJ0uR4jtbo81DIVwu6pR-?usp=drive_link',
+      highlights: [
+        'Participation from 13+ student activities and organizations',
+        'Guest Speakers: 8 industry-leading experts',
+        'Full day of technical workshops and networking sessions'
+      ]
+    },
+    {
+      id: 2,
+      title: 'Hydraulic Systems Workshop - 2025',
+      year: '2025',
+      date: 'February 11, 2025',
+      description:
+        'A hands-on workshop where students learn hydraulic principles, components, and real-world applications through experiments and circuit assemblies.',
+      status: 'Completed',
+      attendees: '450+',
+      banner: '/MAIN BANNER final ver. 169.png',
+      driveFolder: 'https://drive.google.com/drive/folders/1Onn--pRXoFyZ1v0ruHiTMZZ4zipOvIAV?usp=drive_link',
+      highlights: [
+        'First-ever mechanical engineering graduation projects exhibition in Egypt',
+        'Showcased innovative projects bridging creativity and industry impact'
+      ]
+    },
+        {
+      id: 3,
+      title: 'CFD Workshop - 2025',
+      year: '2025',
+      date: 'February 3, 2025',
+      description:
+        'A practical workshop teaching fluid simulation, analysis, and optimization using Computational Fluid Dynamics software.',
+      status: 'Completed',
+      attendees: '450+',
+      banner: '/MAIN BANNER final ver. 169.png',
+      driveFolder: 'https://drive.google.com/drive/folders/192iq39YP5puenSZvHTDmp2Zqv9n-xHPd?usp=drive_link',
+      highlights: [
+        'First-ever mechanical engineering graduation projects exhibition in Egypt',
+        'Showcased innovative projects bridging creativity and industry impact'
+      ]
+    },
+        {
+      id: 4,
+      title: 'Automotive Workshop - 2025',
+      year: '2025',
+      date: 'January 29, 2025',
+      description:
+        'A hands-on workshop focused on automotive engineering principles, vehicle dynamics, and engine systems.',
+      status: 'Completed',
+      attendees: '450+',
+      banner: '/MAIN BANNER final ver. 169.png',
+      driveFolder: 'https://drive.google.com/drive/folders/1PAMTdzak6Sl58phBK4ymIaR_21vTRn8L?usp=drive_link',
+      highlights: [
+        'First-ever mechanical engineering graduation projects exhibition in Egypt',
+        'Showcased innovative projects bridging creativity and industry impact'
+      ]
+    }
+
   ];
 
   const fieldTrips: FieldTripItem[] = [
     {
       id: 1,
-      title: 'Promec Industrial Visit',
-      location: 'Promec Factory, Egypt',
-      date: 'March 15, 2025',
+      title: 'ObourLand Factory Visit',
+      location: 'ObourLand Factory, Egypt',
+      date: 'April 24, 2025',
       description:
         "An insightful visit to one of Egypt's leading industrial manufacturing facilities, exploring modern production lines and engineering innovations.",
-      banner: '/promec.jpg',
-      images: ['/promec.jpg', '/promec2.jpg', '/promec3.jpg', '/promec4.jpg']
+      banner: '/obour.jpg',
+      driveFolder: 'https://drive.google.com/drive/folders/19AXG3mAO3wo7q2PCLcR7cPHVYjcAx9Sw?usp=drive_link'
     },
     {
       id: 2,
-      title: 'EMC Factory Tour',
-      location: 'Egyptian Media Company, Cairo',
-      date: 'March 22, 2025',
-      description: 'Discover the intersection of mechanical engineering and media technology in this comprehensive factory tour.',
-      banner: '/emc.jpg',
-      images: ['/emc.jpg', '/emc2.jpg', '/emc3.jpg']
+      title: ' Art Ceramic سيراميكا آرت Factory Tour',
+      location: '6th of October industrial zone, 1st CPC industrial compound, Cairo',
+      date: 'April 30, 2025',
+      description: 'one of Egypt’s top ceramic manufacturers! Discover the secrets behind ceramic production, from raw materials to the final artistic touches. Witness cutting-edge machinery, industrial processes, and engineering excellence up close!',
+      banner: '/art.jpg',
+      driveFolder: 'https://drive.google.com/drive/folders/19CRiq6izGk3dSj4HUjzs_iNHy5Ug5_3L?usp=drive_link'
     },
     {
       id: 3,
-      title: 'El-Attal Industrial Complex',
-      location: 'El-Attal, 6th of October City',
-      date: 'April 5, 2025',
-      description: 'Explore heavy machinery manufacturing and precision engineering at El-Attal industrial facilities.',
-      banner: '/elattal.jpg',
-      images: ['/elattal.jpg', '/elattal2.jpg', '/elattal3.jpg']
+      title: 'Khedr Trust',
+      location: 'Khedr Trust, Industrial Zone, Cairo',
+      date: 'May 3, 2025',
+      description: 'a leading Egyptian manufacturer of air conditioning products with 11+ years of expertise in the market!',
+      banner: '/khedr.png',
+      driveFolder: 'https://drive.google.com/drive/folders/1tUXMDN-33iFnNNq9Ie0g44mO_OdOl7WE?usp=drive_link'
     },
     {
       id: 4,
-      title: 'Obour City Engineering Hub',
-      location: 'Obour City, Egypt',
-      date: 'April 12, 2025',
-      description: "Visit multiple engineering facilities and innovation centers in Egypt's growing industrial zone.",
-      banner: '/obour.jpg',
-      images: ['/obour.jpg', '/obour2.jpg', '/obour3.jpg']
+      title: ' EGIC إيچيك Factory Visit',
+      location: '6th of October Industrial Zone, Almostakbal Way, Egypt',
+      date: 'June 25, 2025',
+      description: "one of Egypt’s leading industry experts in water and gas piping systems. Explore their advanced manufacturing processes, quality control measures, and innovative engineering solutions that drive their success in the market.",
+      banner: '/egic.jpg',
+      driveFolder: 'https://drive.google.com/drive/folders/1DHhgNEEITwLuYQtSVKgNtBu0qh4h9kvr?usp=drive_link'
     },
     {
       id: 5,
-      title: 'Simplex Manufacturing Tour',
-      location: 'Simplex Facilities',
+      title: 'Premco Precast Factory Tour',
+      location: '6 October City, Egypt',
       date: 'April 19, 2025',
-      description: 'Experience cutting-edge manufacturing processes and quality control systems in action.',
-      banner: '/simplex.jpg',
-      images: ['/simplex.jpg', '/simplex2.jpg', '/simplex3.jpg']
+      description: 'Building Egypt’s future with uncompromising quality and boundless innovation. At PREMCO PRECAST EGYPT',
+      banner: '/premco.jpg',
+      driveFolder: 'https://drive.google.com/drive/folders/1MhHVTKNgFafPNI383s4eqAkf4K75B36C?usp=drive_link'
     },
     {
-      id: 6,
-      title: 'El-Waha Industrial Visit',
-      location: 'El-Waha, Egypt',
-      date: 'April 26, 2025',
-      description: 'Tour advanced production facilities and learn about sustainable manufacturing practices.',
-      banner: '/elwaha.jpg',
-      images: ['/elwaha.jpg', '/elwaha2.jpg', '/elwaha3.jpg']
+      id: 5,
+      title: 'Korra Energi Factory Tour',
+      location: '2nd industrial zone, New Elsalheya city, Egypt',
+      date: 'September 2, 2025',
+      description: 'Ever wondered how mega factories come to life from the inside out? This time, our journey will be with Korra energi , a pioneering Egyptian company with over 40 years of experience in providing integrated energy solutions across Egypt, Africa, and the Middle East.',
+      banner: '/KORRA.jpg',
+      driveFolder: 'https://drive.google.com/drive/folders/1MhHVTKNgFafPNI383s4eqAkf4K75B36C?usp=drive_link'
     }
   ];
 
@@ -153,46 +213,31 @@ const Events = () => {
     {
       id: 1,
       title: 'Summer Engineering Internship',
-      company: 'Leading Industrial Partner',
+      company: 'DRIC Developed Refrigeration & Air Condition Industries Equipment Co.',
       description:
-        'A comprehensive 8-week summer internship program providing hands-on experience in mechanical engineering, working on real projects with industry professionals.',
-      duration: 'Summer 2025 (8 weeks)',
-      banner: '/AI.jpg',
-      highlights: ['Work on real engineering projects', 'Mentorship from industry experts', 'Networking opportunities', 'Certificate of completion']
+        'A comprehensive summer internship program providing hands-on experience in mechanical engineering, working on real projects with industry professionals.',
+      duration: 'Summer 2025 (17 August - 21 August)',
+      banner: '/inter.jpg',
+      highlights: ['Work on real engineering projects', 'Mentorship from industry experts', 'Networking opportunities', 'Certificate of completion'],
+      driveFolder: 'https://drive.google.com/drive/folders/1bW4Tut_j68qKX1oFbB5drreb9QEGL4op?usp=drive_link'
     },
     {
       id: 2,
-      title: 'Winter Training Program',
-      company: 'Technology Solutions Corp',
+      title: 'Summer Training Program',
+      company: 'AG Chem BTTRIGAS',
       description:
-        'A focused 4-week winter training program covering automation, control systems, and modern manufacturing technologies.',
-      duration: 'Winter 2025 (4 weeks)',
-      banner: '/AI-1200x800.jpg',
-      highlights: ['Advanced technical training', 'Industry certifications', 'Practical workshops', 'Career development sessions']
+        'A focused 2-week winter training program covering automation, control systems, and modern manufacturing technologies.',
+      duration: 'Summer 2025 (2 weeks)',
+      banner: '/Achem.png',
+      highlights: ['Advanced technical training', 'Industry certifications', 'Practical workshops', 'Career development sessions'],
+      driveFolder: 'https://drive.google.com/drive/folders/1oBRuTDGMc2G_3YHLrsfkG6dXVuUeTeFw?usp=drive_link'
     }
   ];
 
   // ---------- Handlers ----------
-  const openGallery = (images: string[], title: string, startIndex = 0) => {
-    setSelectedGallery({ images, title });
-    setCurrentGalleryIndex(startIndex);
+  const openDriveFolder = (folderUrl: string) => {
+    window.open(folderUrl, '_blank');
   };
-
-  const closeGallery = () => {
-    setSelectedGallery(null);
-    setCurrentGalleryIndex(0);
-  };
-
-  const nextGalleryImage = () => {
-    if (!selectedGallery) return;
-    setCurrentGalleryIndex((prev) => (prev + 1) % selectedGallery.images.length);
-  };
-
-  const prevGalleryImage = () => {
-    if (!selectedGallery) return;
-    setCurrentGalleryIndex((prev) => (prev - 1 + selectedGallery.images.length) % selectedGallery.images.length);
-  };
-
 
   // ---------- Reusable animation props ----------
   const fadeUp = { initial: { opacity: 0, y: 16 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: -8 }, transition: { duration: 0.35 } };
@@ -278,17 +323,11 @@ const Events = () => {
 
                     <div className="flex items-center gap-3">
                       <button
-                        onClick={() => openGallery(event.images, event.title)}
+                        onClick={() => openDriveFolder(event.driveFolder)}
                         className="bg-navy hover:bg-primary-800 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
                       >
                         View Photo Gallery
                       </button>
-                      {/* <button
-                        onClick={() => handleReserveTicket(event)}
-                        className="bg-white border border-gray-200 text-gray-700 font-semibold py-2 px-6 rounded-lg transition-shadow shadow-sm hover:shadow-md"
-                      >
-                        Reserve (demo)
-                      </button> */}
                     </div>
                   </div>
                 </div>
@@ -334,34 +373,13 @@ const Events = () => {
                       </div>
                     </div>
 
-                    <div className="mb-4">
-                      <h4 className="font-semibold text-gray-900 mb-2">Gallery</h4>
-                      <div className="grid grid-cols-3 gap-2">
-                        {wk.images.slice(0, 6).map((img, idx) => (
-                          <button
-                            key={idx}
-                            onClick={() => openGallery(wk.images, wk.title, idx)}
-                            className="w-full h-20 rounded-lg overflow-hidden focus:outline-none"
-                          >
-                            <img src={img} alt={`${wk.title} ${idx + 1}`} className="w-full h-full object-cover" />
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
                     <div className="flex gap-3">
                       <button
-                        onClick={() => openGallery(wk.images, wk.title)}
+                        onClick={() => openDriveFolder(wk.driveFolder)}
                         className="bg-navy hover:bg-primary-800 text-white font-semibold py-2 px-4 rounded-lg transition-colors"
                       >
-                        View Gallery
+                        View Photo Gallery
                       </button>
-                      {/* <button
-                        onClick={() => handleReserveTicket(wk)}
-                        className="bg-white border border-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-lg"
-                      >
-                        Reserve (demo)
-                      </button> */}
                     </div>
                   </div>
                 </div>
@@ -418,24 +436,12 @@ const Events = () => {
                       <div className="p-6">
                         <p className="text-gray-600 mb-6">{trip.description}</p>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                          {trip.images.map((image, index) => (
-                            <button
-                              key={index}
-                              onClick={() => openGallery(trip.images, trip.title, index)}
-                              className="w-full h-32 rounded-lg overflow-hidden focus:outline-none"
-                            >
-                              <img src={image} alt={`${trip.title} - Photo ${index + 1}`} className="w-full h-full object-cover" />
-                            </button>
-                          ))}
-                        </div>
-
                         <div className="flex gap-3">
                           <button
-                            onClick={() => openGallery(trip.images, trip.title)}
+                            onClick={() => openDriveFolder(trip.driveFolder)}
                             className="bg-navy hover:bg-primary-800 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
                           >
-                            View Full Gallery
+                            View Photo Gallery
                           </button>
                         </div>
                       </div>
@@ -447,118 +453,67 @@ const Events = () => {
           </motion.div>
         </section>
 
-        {/* ----------------- 4) Internships Section ----------------- */}
-        <section>
-          <motion.header {...fadeUp} className="mb-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-navy">Internships</h2>
-            <p className="text-gray-600 mt-2">Structured internship programs that connect students to industry partners.</p>
-          </motion.header>
+{/* ----------------- 4) Internships Section ----------------- */}
+    <section>
+      <motion.header {...fadeUp} className="mb-6">
+        <h2 className="text-2xl md:text-3xl font-bold text-navy">Internships</h2>
+        <p className="text-gray-600 mt-2">Structured internship programs that connect students to industry partners.</p>
+      </motion.header>
 
-          <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {internships.map((intern) => (
-              <motion.div
-                key={intern.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-                whileHover={{ y: -4 }}
-              >
-                <img src={intern.banner} alt={intern.title} className="w-full h-44 object-cover" />
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-xl font-bold text-gray-900">{intern.title}</h3>
-                    <span className="text-sm text-gray-500">{intern.duration}</span>
-                  </div>
+      <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {internships.map((intern) => (
+          <motion.div
+            key={intern.id}
+            className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col"
+            whileHover={{ y: -4 }}
+          >
+            {/* image */}
+            <img src={intern.banner} alt={intern.title} className="w-full h-44 object-cover" />
 
-                  <p className="text-coral font-semibold mb-2">{intern.company}</p>
-                  <p className="text-gray-600 mb-4">{intern.description}</p>
-
-                  <div className="border-t border-gray-200 pt-4">
-                    <h4 className="font-semibold text-gray-900 mb-3">Program Highlights:</h4>
-                    <ul className="space-y-2 text-sm text-gray-600">
-                      {intern.highlights.map((hl, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <div className="w-1.5 h-1.5 bg-gold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                          {hl}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+            {/* content wrapper with flex-col to stretch */}
+            <div className="p-6 flex flex-col flex-grow">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xl font-bold text-gray-900">{intern.title}</h3>
+                  <span className="text-sm text-gray-500">{intern.duration}</span>
                 </div>
-              </motion.div>
-            ))}
+
+                <p className="text-coral font-semibold mb-2">{intern.company}</p>
+                <p className="text-gray-600 mb-4">{intern.description}</p>
+
+                <div className="border-t border-gray-200 pt-4">
+                  <h4 className="font-semibold text-gray-900 mb-3">Program Highlights:</h4>
+                  <ul className="space-y-2 text-sm text-gray-600">
+                    {intern.highlights.map((hl, idx) => (
+                      <li key={idx} className="flex items-start">
+                        <div className="w-1.5 h-1.5 bg-gold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        {hl}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* button goes to bottom automatically */}
+              <div className="flex justify-center mt-auto pt-6">
+                <button
+                  onClick={() => openDriveFolder(intern.driveFolder)}
+                  className="bg-navy hover:bg-primary-800 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+                >
+                  View image gallery
+                </button>
+              </div>
+            </div>
           </motion.div>
-        </section>
+        ))}
+      </motion.div>
+    </section>
       </main>
 
-      {/* Ticket Reservation Modal (kept as before) */}
+      {/* Ticket Reservation Modal */}
       {isReservationModalOpen && selectedEvent && (
         <TicketReservationModal event={selectedEvent} isOpen={isReservationModalOpen} onClose={() => setIsReservationModalOpen(false)} />
       )}
-
-      {/* Gallery Lightbox (reused across all sections) */}
-      <AnimatePresence>
-        {selectedGallery && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
-            onClick={closeGallery}
-          >
-            <div className="relative max-w-6xl w-full" onClick={(e) => e.stopPropagation()}>
-              <button
-                onClick={closeGallery}
-                className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
-              >
-                <X className="h-8 w-8" />
-              </button>
-
-              <div className="relative">
-                <img
-                  src={selectedGallery.images[currentGalleryIndex]}
-                  alt={`${selectedGallery.title} - Photo ${currentGalleryIndex + 1}`}
-                  className="w-full h-auto max-h-[80vh] object-contain rounded-lg"
-                />
-
-                {selectedGallery.images.length > 1 && (
-                  <>
-                    <button
-                      onClick={prevGalleryImage}
-                      className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-colors backdrop-blur-sm"
-                    >
-                      <ChevronDown className="h-6 w-6 transform rotate-90" />
-                    </button>
-                    <button
-                      onClick={nextGalleryImage}
-                      className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-colors backdrop-blur-sm"
-                    >
-                      <ChevronDown className="h-6 w-6 transform -rotate-90" />
-                    </button>
-                  </>
-                )}
-              </div>
-
-              <div className="text-center mt-4">
-                <p className="text-white text-lg font-semibold">{selectedGallery.title}</p>
-                <p className="text-gray-300 text-sm mt-1">
-                  Photo {currentGalleryIndex + 1} of {selectedGallery.images.length}
-                </p>
-              </div>
-
-              {selectedGallery.images.length > 1 && (
-                <div className="flex justify-center gap-2 mt-4">
-                  {selectedGallery.images.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentGalleryIndex(index)}
-                      className={`w-2 h-2 rounded-full transition-all ${index === currentGalleryIndex ? 'bg-white w-8' : 'bg-white/50'}`}
-                    />
-                  ))}
-                </div>
-              )}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 };
