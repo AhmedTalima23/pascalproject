@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, Users, Target, ArrowRight, Facebook, MapPin, Clock } from 'lucide-react';
+import { Calendar, Users, Target, ArrowRight, Facebook, MapPin, Clock, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import UpcomingEventCard from '../components/UpcomingEventCard';
 import AnimatedSection from '../components/AnimatedSection';
@@ -268,6 +268,202 @@ const Home = () => {
                 <div className="text-gray-600">{stat.label}</div>
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </AnimatedSection>
+
+      {/* Latest News - ROCOL Sponsorship Announcement */}
+      <AnimatedSection className="py-20 bg-gradient-to-br from-gold/5 via-coral/5 to-navy/5 border-b-4 border-gold">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            {/* Left: Badge and Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              {/* Exclusive Badge */}
+              <motion.div
+                className="inline-flex items-center gap-2 px-4 py-2 bg-gold/30 text-navy rounded-full mb-6 border-2 border-gold font-bold text-sm"
+                animate={{
+                  boxShadow: [
+                    '0 0 0 0 rgba(218, 165, 32, 0.4)',
+                    '0 0 0 10px rgba(218, 165, 32, 0)',
+                  ]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                }}
+              >
+                <Sparkles className="h-5 w-5" />
+                LATEST NEWS - EXCLUSIVE
+              </motion.div>
+
+              <motion.h2
+                className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                Exciting New Sponsorship with <span className="text-gold">ROCOL Egypt</span>
+              </motion.h2>
+
+              <motion.div
+                className="space-y-4 text-gray-700 text-lg leading-relaxed mb-8"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
+                <p>
+                  🎉 <span className="font-bold">We're thrilled to announce our new annual sponsorship with ROCOL Egypt</span>, one of the leading companies under Atlantic International Corporation!
+                </p>
+                <p>
+                  Earlier this week, our Vice President, <span className="font-semibold">Anas Alryan</span>, signed the sponsorship contract with <span className="font-semibold">Mr. Amr Elzaky</span>, CEO of ROCOL Egypt, marking the beginning of a powerful collaboration.
+                </p>
+                <p>
+                  ROCOL is globally known for its speciality lubrication and maintenance solutions, supporting industries with high-performance products that keep machines running at their best. Partnering with such an innovative brand is a milestone for Pascal.
+                </p>
+              </motion.div>
+
+              {/* Key Highlights */}
+              <motion.div
+                className="mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-xl font-bold text-gray-900 mb-4">What This Partnership Opens:</h3>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className="text-gold text-2xl leading-none">✓</span>
+                    <span className="text-gray-700"><span className="font-semibold">Technical Exposure</span> to industry leaders and innovation</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-gold text-2xl leading-none">✓</span>
+                    <span className="text-gray-700"><span className="font-semibold">Industry Partnerships</span> and collaboration opportunities</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-gold text-2xl leading-none">✓</span>
+                    <span className="text-gray-700"><span className="font-semibold">Future Career Pathways</span> with a globally-recognized company</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-gold text-2xl leading-none">✓</span>
+                    <span className="text-gray-700"><span className="font-semibold">Community Growth</span> and enhanced opportunities for Pascal members</span>
+                  </li>
+                </ul>
+              </motion.div>
+
+              <motion.p
+                className="text-xl font-bold text-navy mb-8"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                viewport={{ once: true }}
+              >
+                ⭐ Stay tuned, the best is yet to come!
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <a
+                  href="/sponsors"
+                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-gold to-coral hover:from-gold/90 hover:to-coral/90 text-white font-bold rounded-lg transition-all duration-300 group text-lg"
+                >
+                  Learn More About Our Sponsors
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </motion.div>
+            </motion.div>
+
+            {/* Right: Visual Showcase */}
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, x: 20, scale: 0.9 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              {/* Card with Shadow and Border */}
+              <motion.div
+                className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-gold/30 bg-white"
+                whileHover={{ scale: 1.05, boxShadow: '0 30px 60px rgba(218, 165, 32, 0.3)' }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Placeholder for ROCOL Image - with fallback gradient */}
+                <div className="bg-gradient-to-br from-navy via-primary-900 to-navy h-96 md:h-[480px] relative flex items-center justify-center">
+                  {/* Decorative elements */}
+                  <motion.div
+                    className="absolute top-6 left-6 w-24 h-24 bg-gold/20 rounded-full blur-2xl"
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                  />
+                  <motion.div
+                    className="absolute bottom-6 right-6 w-32 h-32 bg-coral/20 rounded-full blur-2xl"
+                    animate={{ y: [0, 10, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
+                  />
+                  
+                  {/* Content Overlay */}
+                  <div className="relative z-10 text-center">
+                    <motion.div
+                      className="inline-block"
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 3, repeat: Infinity }}
+                    >
+                      <img
+                        src="/sponsors/rocol-logo.png"
+                        alt="ROCOL Egypt Logo"
+                        className="h-32 w-auto mx-auto mb-6"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                    </motion.div>
+                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">ROCOL Egypt</h3>
+                    <p className="text-gold text-lg font-semibold">Annual Partnership 2025</p>
+                  </div>
+                </div>
+
+                {/* Info Badges */}
+                <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-3">
+                  <motion.div
+                    className="bg-white/95 backdrop-blur px-4 py-3 rounded-lg shadow-lg"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7 }}
+                    viewport={{ once: true }}
+                  >
+                    <p className="text-sm text-gray-600 font-semibold uppercase">Parent Company</p>
+                    <p className="text-gray-900 font-bold">Atlantic International Corporation</p>
+                  </motion.div>
+                  <motion.div
+                    className="bg-gold/90 text-white px-4 py-3 rounded-lg shadow-lg"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 }}
+                    viewport={{ once: true }}
+                  >
+                    <p className="text-sm font-semibold uppercase">Signed This Week</p>
+                    <p className="text-white font-bold">Contract Officially Executed</p>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
       </AnimatedSection>
