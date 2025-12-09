@@ -426,7 +426,7 @@ const Home = () => {
                       transition={{ duration: 7, repeat: Infinity }}
                     >
                       <img
-                        src="/sponsor/1.jpg"
+                        src="/sponsor/rocol.png"
                         alt="ROCOL Egypt Logo"
                         className="h-64 w-auto mx-auto mb-6 rounded-lg shadow-lg bg-white"
                         onError={(e) => {
