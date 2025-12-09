@@ -212,7 +212,7 @@ const Events = () => {
   const internships: InternshipItem[] = [
     {
       id: 1,
-      title: 'Summer Engineering Internship',
+      title: 'DRIC Summer Internship',
       company: 'DRIC Developed Refrigeration & Air Condition Industries Equipment Co.',
       description:
       'Ever wondered how massive HVAC systems that power malls, factories, and hospitals are actually built and tested ?! This is what we will see in Dric factory, Get ready for a deep dive into the world of HVAC manufacturing, where technology, design, and production meet to deliver comfort!',
@@ -223,7 +223,7 @@ const Events = () => {
     },
     {
       id: 2,
-      title: 'Hybrid Refrigeration Training Program',
+      title: 'AG Chem BTTRIGAS Summer Internship Program',
       company: 'AG Chem BTTRIGAS',
       description:
       'Participants experience on-site factory sessions and online modules, learning key topics in refrigerants: industry, applications, legislation, handling, and the refrigeration cycle. Gain hands-on technical insights while understanding sustainability and safety in modern refrigeration systems.',
