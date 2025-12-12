@@ -16,7 +16,7 @@ const Home = () => {
           Opportunities Offered
           <div className="flex justify-center gap-2 mt-2">
             <span className="inline-flex items-center px-2 py-1 bg-gold/20 text-navy rounded-full text-xs font-semibold">
-              <span className="mr-1">6</span>
+              <span className="mr-1">7</span>
               <span className="mr-1">Field Trips</span>
             </span>
             <span className="inline-flex items-center px-2 py-1 bg-coral/20 text-coral rounded-full text-xs font-semibold">
