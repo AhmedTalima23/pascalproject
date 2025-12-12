@@ -206,6 +206,15 @@ const Events = () => {
       description: 'Ever wondered how mega factories come to life from the inside out? This time, our journey will be with Korra energi , a pioneering Egyptian company with over 40 years of experience in providing integrated energy solutions across Egypt, Africa, and the Middle East.',
       banner: '/KORRA.jpg',
       driveFolder: 'https://drive.google.com/drive/folders/1MhHVTKNgFafPNI383s4eqAkf4K75B36C?usp=drive_link'
+    },
+    {
+      id: 7,
+      title: ' Daikin Egypt Factory Tour',
+      location: 'District 5, Egypt',
+      date: 'December 11, 2025',
+      description: 'Step inside Daikin Egypt, the Japanese global leader in HVAC-R technology, providing cooling, heating, and innovative climate solutions for offices, factories, and malls. See how engineering turns designs into reality!',
+      banner: '/daikin.png',
+      driveFolder: ''
     }
   ];
 
