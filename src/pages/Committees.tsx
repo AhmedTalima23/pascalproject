@@ -51,7 +51,7 @@ const Committees = () => {
       description: 'Dedicated to automotive engineering and vehicle technology...',
       responsibilities: ['Vehicle design projects', 'Automotive workshops', 'Industry partnerships', 'Racing team support'],
       image: '/committee-placeholder.jpg',
-      videoUrl: 'https://drive.google.com/file/d/FILE_ID/preview'
+      videoUrl: 'https://drive.google.com/file/d/12g1zHUpexRPPDURVzAWbcZSlZkQ4T4_e/preview'
     },
     {
       id: 3,
