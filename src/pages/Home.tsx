@@ -118,8 +118,8 @@ const Home = () => {
               <img
                 src="/pascal new logo.png"
                 alt="Pascal CUFE Logo"
-                className="h-16 w-auto mx-auto rounded-lg shadow-lg bg-white"
-                style={{ maxWidth: '80px' }}
+                className="h-40 w-auto mx-auto rounded-lg shadow-lg bg-white"
+                style={{ maxWidth: '200px' }}
               />
             </motion.div>
             <motion.h1
