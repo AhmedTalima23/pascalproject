@@ -280,7 +280,7 @@ const Events = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            Explore our Events, Workshops, Industry Field Trips, and Internship Programs — all designed to connect students with real-world engineering.
+            Explore our Events, Workshops, Industry Field Trips, and Internship Programs, All designed to connect students with real-world engineering.
           </motion.p>
         </div>
       </section>
@@ -291,9 +291,9 @@ const Events = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-gold/20 via-coral/20 to-gold/20 border-2 border-gold rounded-2xl p-8 md:p-12 shadow-lg overflow-hidden"
+          className="bg-gradient-to-r from-gold/20 via-coral/20 to-gold/20 border-2 border-gold rounded-xl sm:rounded-2xl p-4 sm:p-8 md:p-12 shadow-lg overflow-hidden"
         >
-          <div className="flex flex-col md:flex-row items-center gap-8">
+          <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:gap-8">
             {/* Left: Content */}
             <div className="flex-1">
               <div className="flex items-start gap-4">
@@ -308,17 +308,17 @@ const Events = () => {
                   <div className="inline-flex items-center gap-2 px-3 py-1 bg-gold/30 text-navy rounded-full mb-3 border border-gold font-bold text-xs">
                     🎉 EXCLUSIVE ANNOUNCEMENT
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3">
                     2026 Workshops Applications Now Open!
                   </h3>
-                  <p className="text-gray-700 mb-6 max-w-2xl">
+                  <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 max-w-2xl">
                     Don't miss the opportunity to join our upcoming 2026 workshops! Dive into mechanical engineering like never before! Whether you're passionate about, Robotics, Hydraulic, Automotive, SOLIDWORKS, AI & ML applications in Mechanical Engineering. or Premium workshops by ROCOL, including Lubrication and Soft Skills, these workshops are tailored just for you.
                   </p>
                   <a
                     href="https://docs.google.com/forms/d/e/1FAIpQLScqC8q3lAbaoUius23HLlhELG3UL3QM3BbN3rmNnsQvJabSHA/viewform?usp=header"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-gold to-coral hover:from-gold/90 hover:to-coral/90 text-white font-bold rounded-lg transition-all duration-300 group"
+                    className="inline-flex items-center px-4 sm:px-8 py-2 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-gold to-coral hover:from-gold/90 hover:to-coral/90 text-white font-bold rounded-lg transition-all duration-300 group"
                   >
                     Apply Now
                     <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
@@ -335,9 +335,9 @@ const Events = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <motion.img
-                src="/announce.png"
+                src="/pascal workshops final announcement FINAL FINAL.png"
                 alt="2026 Workshops"
-                className="w-full max-w-xs md:max-w-sm rounded-xl shadow-lg"
+                className="w-full max-w-xs sm:max-w-sm md:max-w-md rounded-lg sm:rounded-xl shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               />
@@ -417,7 +417,7 @@ const Events = () => {
             <p className="text-gray-600 mt-2">Hands-on workshops and exhibitions — view galleries and details.</p>
           </motion.header>
 
-          <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {workshops.map((wk) => (
               <motion.div
                 key={wk.id}
@@ -474,13 +474,13 @@ const Events = () => {
               <div key={trip.id} className="bg-white rounded-xl shadow-md overflow-hidden">
                 <button
                   onClick={() => setExpandedFieldTrip(expandedFieldTrip === trip.id ? null : trip.id)}
-                  className="w-full p-6 flex items-center justify-between hover:bg-gray-50 transition-colors"
+                  className="w-full p-3 sm:p-6 flex items-center justify-between hover:bg-gray-50 transition-colors"
                 >
-                  <div className="flex items-center gap-4">
-                    <img src={trip.banner} alt={trip.title} className="w-16 h-16 rounded-lg object-cover" />
+                  <div className="flex items-center gap-2 sm:gap-4">
+                    <img src={trip.banner} alt={trip.title} className="w-12 sm:w-16 h-12 sm:h-16 rounded-lg object-cover" />
                     <div className="text-left">
-                      <h3 className="text-xl font-bold text-gray-900">{trip.title}</h3>
-                      <div className="flex items-center gap-3 text-gray-600 text-sm mt-1">
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">{trip.title}</h3>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-gray-600 text-xs sm:text-sm mt-1">
                         <div className="flex items-center">
                           <MapPin className="h-4 w-4 mr-1" />
                           {trip.location}
@@ -507,13 +507,13 @@ const Events = () => {
                       transition={{ duration: 0.33 }}
                       className="border-t border-gray-200"
                     >
-                      <div className="p-6">
-                        <p className="text-gray-600 mb-6">{trip.description}</p>
+                      <div className="p-3 sm:p-6">
+                        <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">{trip.description}</p>
 
                         <div className="flex gap-3">
                           <button
                             onClick={() => openDriveFolder(trip.driveFolder)}
-                            className="bg-navy hover:bg-primary-800 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+                            className="bg-navy hover:bg-primary-800 text-white font-semibold text-sm sm:text-base py-2 px-4 sm:px-6 rounded-lg transition-colors"
                           >
                             View Photo Gallery
                           </button>
@@ -534,26 +534,26 @@ const Events = () => {
         <p className="text-gray-600 mt-2">Structured internship programs that connect students to industry partners.</p>
       </motion.header>
 
-      <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <motion.div {...fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
         {internships.map((intern) => (
           <motion.div
             key={intern.id}
-            className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col"
+            className="bg-white rounded-lg sm:rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col"
             whileHover={{ y: -4 }}
           >
             {/* image */}
-            <img src={intern.banner} alt={intern.title} className="w-full h-44 object-cover" />
+            <img src={intern.banner} alt={intern.title} className="w-full h-40 sm:h-44 object-cover" />
 
             {/* content wrapper with flex-col to stretch */}
-            <div className="p-6 flex flex-col flex-grow">
+            <div className="p-3 sm:p-4 md:p-6 flex flex-col flex-grow">
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl font-bold text-gray-900">{intern.title}</h3>
-                  <span className="text-sm text-gray-500">{intern.duration}</span>
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-900">{intern.title}</h3>
+                  <span className="text-xs sm:text-sm text-gray-500">{intern.duration}</span>
                 </div>
 
-                <p className="text-coral font-semibold mb-2">{intern.company}</p>
-                <p className="text-gray-600 mb-4">{intern.description}</p>
+                <p className="text-coral font-semibold text-sm sm:text-base mb-2">{intern.company}</p>
+                <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-4">{intern.description}</p>
 
                 <div className="border-t border-gray-200 pt-4">
                   <h4 className="font-semibold text-gray-900 mb-3">Program Highlights:</h4>
@@ -569,10 +569,10 @@ const Events = () => {
               </div>
 
               {/* button goes to bottom automatically */}
-              <div className="flex justify-center mt-auto pt-6">
+              <div className="flex justify-center mt-auto pt-4 sm:pt-6">
                 <button
                   onClick={() => openDriveFolder(intern.driveFolder)}
-                  className="bg-navy hover:bg-primary-800 text-white font-semibold py-2 px-6 rounded-lg transition-colors"
+                  className="bg-navy hover:bg-primary-800 text-white font-semibold text-sm sm:text-base py-2 px-4 sm:px-6 rounded-lg transition-colors"
                 >
                   View image gallery
                 </button>
