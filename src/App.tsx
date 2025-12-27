@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import PageTransition from './components/PageTransition';
+import { useScrollToTop } from './hooks/useScrollToTop';
 import Home from './pages/Home';
 import About from './pages/About';
 import Events from './pages/Events';
@@ -35,6 +36,7 @@ const pageTransition = {
 
 const AnimatedRoutes = () => {
   const location = useLocation();
+  useScrollToTop();
 
   return (
     <AnimatePresence mode="wait">

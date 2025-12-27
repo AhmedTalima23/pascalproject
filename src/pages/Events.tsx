@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, MapPin, Users, Clock, Brain, Building2, Briefcase, ChevronDown, X } from 'lucide-react';
+import { Calendar, MapPin, Users, Clock, Brain, Building2, Briefcase, ChevronDown, X, Sparkles } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import TicketReservationModal from '../components/TicketReservationModal';
 
@@ -83,7 +83,7 @@ const Events = () => {
   ];
 
   const workshops: WorkshopItem[] = [
-        {
+    {
       id: 1,
       title: 'Mechanical Design Workshop - 2025',
       year: '2025',
@@ -116,7 +116,7 @@ const Events = () => {
         'Showcased innovative projects bridging creativity and industry impact'
       ]
     },
-        {
+    {
       id: 3,
       title: 'CFD Workshop - 2025',
       year: '2025',
@@ -132,7 +132,7 @@ const Events = () => {
         'Showcased innovative projects bridging creativity and industry impact'
       ]
     },
-        {
+    {
       id: 4,
       title: 'Automotive Workshop - 2025',
       year: '2025',
@@ -286,6 +286,65 @@ const Events = () => {
       </section>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+        {/* Exclusive Announcement Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="bg-gradient-to-r from-gold/20 via-coral/20 to-gold/20 border-2 border-gold rounded-2xl p-8 md:p-12 shadow-lg overflow-hidden"
+        >
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            {/* Left: Content */}
+            <div className="flex-1">
+              <div className="flex items-start gap-4">
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="flex-shrink-0"
+                >
+                  <Sparkles className="h-8 w-8 text-gold mt-1" />
+                </motion.div>
+                <div className="flex-grow">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-gold/30 text-navy rounded-full mb-3 border border-gold font-bold text-xs">
+                    🎉 EXCLUSIVE ANNOUNCEMENT
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                    2026 Workshops Applications Now Open!
+                  </h3>
+                  <p className="text-gray-700 mb-6 max-w-2xl">
+                    Don't miss the opportunity to join our upcoming 2026 workshops! Dive into mechanical engineering like never before! Whether you're passionate about, Robotics, Hydraulic, Automotive, SOLIDWORKS, AI & ML applications in Mechanical Engineering. or Premium workshops by ROCOL, including Lubrication and Soft Skills, these workshops are tailored just for you.
+                  </p>
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScqC8q3lAbaoUius23HLlhELG3UL3QM3BbN3rmNnsQvJabSHA/viewform?usp=header"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-gold to-coral hover:from-gold/90 hover:to-coral/90 text-white font-bold rounded-lg transition-all duration-300 group"
+                  >
+                    Apply Now
+                    <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Image */}
+            <motion.div
+              className="flex-1 flex justify-center"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <motion.img
+                src="/announce.png"
+                alt="2026 Workshops"
+                className="w-full max-w-xs md:max-w-sm rounded-xl shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.div>
+          </div>
+        </motion.section>
+
         {/* ----------------- 1) Events Section ----------------- */}
         <section>
           <motion.header {...fadeUp} className="mb-6">
