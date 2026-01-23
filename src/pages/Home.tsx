@@ -7,7 +7,7 @@ import AnimatedSection from '../components/AnimatedSection';
 const Home = () => {
   const stats = [
     { icon: Users, label: 'Active Members', value: '150+' },
-    { icon: Calendar, label: 'Events Organized', value: '8' },
+    { icon: Calendar, label: 'Events Organized', value: '8' }, 
     // Replace Opportunities Offered stat with a creative breakdown
     {
       icon: Target,

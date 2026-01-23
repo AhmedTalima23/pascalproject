@@ -291,7 +291,7 @@ const Events = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-gold/20 via-coral/20 to-gold/20 border-2 border-gold rounded-xl sm:rounded-2xl p-4 sm:p-8 md:p-12 shadow-lg overflow-hidden"
+          className="bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 border-2 border-gray-400 rounded-xl sm:rounded-2xl p-4 sm:p-8 md:p-12 shadow-lg overflow-hidden"
         >
           <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:gap-8">
             {/* Left: Content */}
@@ -302,27 +302,24 @@ const Events = () => {
                   transition={{ duration: 2, repeat: Infinity }}
                   className="flex-shrink-0"
                 >
-                  <Sparkles className="h-8 w-8 text-gold mt-1" />
+                  <Sparkles className="h-8 w-8 text-gray-500 mt-1" />
                 </motion.div>
                 <div className="flex-grow">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-gold/30 text-navy rounded-full mb-3 border border-gold font-bold text-xs">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-gray-300 text-gray-800 rounded-full mb-3 border border-gray-400 font-bold text-xs">
                     🎉 EXCLUSIVE ANNOUNCEMENT
                   </div>
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-                    2026 Workshops Applications Now Open!
+                    2026 Workshops Registration Closed
                   </h3>
                   <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 max-w-2xl">
-                    Don't miss the opportunity to join our upcoming 2026 workshops! Dive into mechanical engineering like never before! Whether you're passionate about, Robotics, Hydraulic, Automotive, SOLIDWORKS, AI & ML applications in Mechanical Engineering. or Premium workshops by ROCOL, including Lubrication and Soft Skills, these workshops are tailored just for you.
+                    The registration period for our 2026 workshops has now closed. We appreciate the overwhelming interest and look forward to welcoming participants to an exciting lineup of mechanical engineering workshops, including Robotics, Hydraulic Systems, Automotive Engineering, SOLIDWORKS, AI & ML applications, and premium sessions by ROCOL on Lubrication and Soft Skills.
                   </p>
-                  <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLScqC8q3lAbaoUius23HLlhELG3UL3QM3BbN3rmNnsQvJabSHA/viewform?usp=header"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-4 sm:px-8 py-2 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-gold to-coral hover:from-gold/90 hover:to-coral/90 text-white font-bold rounded-lg transition-all duration-300 group"
+                  <button
+                    disabled
+                    className="inline-flex items-center px-4 sm:px-8 py-2 sm:py-3 text-sm sm:text-base bg-gray-400 text-gray-600 font-bold rounded-lg cursor-not-allowed"
                   >
-                    Apply Now
-                    <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                  </a>
+                    Registration Closed
+                  </button>
                 </div>
               </div>
             </div>
