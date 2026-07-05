@@ -11,7 +11,7 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
     setIsVisible(true);
   }, []);
 
-  return (
+  return (  
     <div className={`page-transition ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {children}
     </div>
