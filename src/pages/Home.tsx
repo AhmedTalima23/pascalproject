@@ -272,6 +272,131 @@ const Home = () => {
         </div>
       </AnimatedSection>
 
+      {/* Summer Internship 2026 Announcement */}
+      <AnimatedSection className="py-20 bg-gradient-to-br from-navy via-primary-950 to-navy text-white overflow-hidden relative border-b-4 border-coral">
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <motion.div
+            className="absolute top-1/4 left-10 w-96 h-96 bg-gold/10 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-10 w-96 h-96 bg-coral/10 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.15, 1],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: 'easeInOut',
+              delay: 2,
+            }}
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column: Brief details */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <motion.div
+                className="inline-flex items-center gap-2 px-4 py-2 bg-coral/20 text-coral rounded-full mb-6 border border-coral/30 font-bold text-sm"
+                animate={{
+                  boxShadow: [
+                    '0 0 0 0 rgba(255, 102, 99, 0.4)',
+                    '0 0 0 10px rgba(255, 102, 99, 0)',
+                  ]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                }}
+              >
+                <Sparkles className="h-5 w-5 text-coral animate-pulse" />
+                ACTIVE REGISTRATION - SUMMER 2026
+              </motion.div>
+
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                Summer Internship <span className="text-gold">Program 2026</span>
+              </h2>
+
+              <p className="text-lg text-blue-100 mb-6 leading-relaxed">
+                Explore the world of HVAC manufacturing with DRIC! Pascal is pleased to announce an exclusive summer internship in collaboration with <strong className="text-gold">Developed Refrigeration & Air Conditioning Industrial Co. (DRIC)</strong>.
+              </p>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-center gap-3 text-blue-100">
+                  <Clock className="h-6 w-6 text-gold flex-shrink-0" />
+                  <div>
+                    <span className="font-semibold text-white">Duration:</span> Weekly internship rounds
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 text-blue-100">
+                  <MapPin className="h-6 w-6 text-gold flex-shrink-0" />
+                  <div>
+                    <span className="font-semibold text-white">Location:</span> DRIC Factory, 10th of Ramadan Industrial Zone
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 text-blue-100">
+                  <Users className="h-6 w-6 text-gold flex-shrink-0" />
+                  <div>
+                    <span className="font-semibold text-white">Eligibility:</span> Mechanical & Mechatronics students (All Egyptian Universities)
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="/events"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-gold to-coral hover:from-gold/90 hover:to-coral/90 text-navy font-bold rounded-lg transition-all duration-300 group text-lg shadow-lg hover:shadow-gold/30 hover-lift"
+                >
+                  View Details & Register
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Right Column: Poster image */}
+            <motion.div
+              className="flex justify-center"
+              initial={{ opacity: 0, scale: 0.9, x: 30 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+            >
+              <a
+                href="/events"
+                className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-gold/30 bg-white group block max-w-sm hover-lift"
+              >
+                <img
+                  src="/dric int .png"
+                  alt="Summer Internship 2026 Poster"
+                  className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="px-6 py-3 bg-white text-navy font-bold rounded-lg shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                    Click to View Details
+                  </span>
+                </div>
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </AnimatedSection>
+
       {/* Latest News - ROCOL Sponsorship Announcement */}
       <AnimatedSection className="py-20 bg-gradient-to-br from-gold/5 via-coral/5 to-navy/5 border-b-4 border-gold">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
