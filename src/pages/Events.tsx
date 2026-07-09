@@ -292,98 +292,105 @@ const Events = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-navy via-primary-950 to-navy text-white border-2 border-gold/40 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12 shadow-xl overflow-hidden relative"
+          className="bg-gradient-to-br from-navy via-primary-950 to-navy text-white border-2 border-gold/40 rounded-xl sm:rounded-2xl p-5 sm:p-8 md:p-12 shadow-xl overflow-hidden relative"
         >
           {/* Subtle glowing backgrounds */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-gold rounded-full filter blur-3xl"></div>
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-coral rounded-full filter blur-3xl"></div>
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div className="absolute top-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-gold rounded-full filter blur-3xl"></div>
+            <div className="absolute bottom-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-coral rounded-full filter blur-3xl"></div>
           </div>
 
-          <div className="relative z-10 flex flex-col lg:flex-row items-center gap-8 md:gap-12">
-            {/* Left: Content */}
-            <div className="flex-grow lg:w-3/5">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-gold/20 text-gold rounded-full mb-4 border border-gold/30 font-bold text-xs">
+          {/* Mobile: poster first, then content. Desktop: side by side */}
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
+
+            {/* Poster — shown first on mobile, right on desktop */}
+            <div className="lg:order-2 lg:w-2/5 flex justify-center w-full">
+              <motion.img
+                src="/dric int .png"
+                alt="Summer Internship 2026 Poster"
+                className="w-full max-w-xs sm:max-w-sm lg:max-w-none rounded-lg sm:rounded-xl shadow-lg border-2 border-gold/20 object-cover"
+                whileHover={{ scale: 1.03 }}
+                transition={{ duration: 0.3 }}
+              />
+            </div>
+
+            {/* Content */}
+            <div className="lg:order-1 lg:w-3/5 flex-grow">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gold/20 text-gold rounded-full mb-4 border border-gold/30 font-bold text-xs">
                 🎉 ACTIVE REGISTRATION
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold mb-2">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 leading-tight">
                 Summer Internship Program 2026
               </h2>
-              <h3 className="text-lg sm:text-xl text-blue-200 font-semibold mb-6">
+              <h3 className="text-base sm:text-lg lg:text-xl text-blue-200 font-semibold mb-4 sm:mb-6">
                 Explore the World of HVAC Manufacturing with DRIC
               </h3>
 
-              <div className="text-sm sm:text-base text-gray-200 space-y-4 mb-6 leading-relaxed">
+              <div className="text-sm sm:text-base text-gray-200 space-y-3 mb-5 sm:mb-6 leading-relaxed">
                 <p>
                   Pascal is pleased to announce an exclusive <strong className="text-gold">Summer Internship</strong> in collaboration with <strong className="text-gold">Developed Refrigeration & Air Conditioning Industrial Co. (DRIC)</strong>.
                 </p>
                 <p>
-                  Have you ever wondered how the large-scale air conditioning systems used in shopping malls, hospitals, airports, and industrial facilities are designed and manufactured? This internship offers a unique opportunity to gain practical exposure to the HVAC manufacturing industry through an immersive factory experience at DRIC.
+                  Have you ever wondered how the large-scale air conditioning systems used in shopping malls, hospitals, airports, and industrial facilities are designed and manufactured? This internship offers a unique opportunity to gain practical exposure to the HVAC manufacturing industry.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-b border-white/10 py-6 mb-6">
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-gold text-base sm:text-lg">During the Internship, You Will:</h4>
-                  <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
+              {/* Two-column info grid: single column on xs, two on sm+ */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 border-t border-b border-white/10 py-5 sm:py-6 mb-5 sm:mb-6">
+                <div className="space-y-2 sm:space-y-3">
+                  <h4 className="font-semibold text-gold text-sm sm:text-base lg:text-lg">During the Internship, You Will:</h4>
+                  <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-300">
                     <li className="flex items-start gap-2">
-                      <span className="text-gold font-bold">✓</span> Explore HVAC duct and air handling unit manufacturing.
+                      <span className="text-gold font-bold flex-shrink-0">✓</span> Explore HVAC duct and air handling unit manufacturing.
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-gold font-bold">✓</span> Learn design and assembly of industrial systems.
+                      <span className="text-gold font-bold flex-shrink-0">✓</span> Learn design and assembly of industrial systems.
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-gold font-bold">✓</span> Observe quality control and performance testing.
+                      <span className="text-gold font-bold flex-shrink-0">✓</span> Observe quality control and performance testing.
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-gold font-bold">✓</span> Gain insights into real-world operations.
+                      <span className="text-gold font-bold flex-shrink-0">✓</span> Gain insights into real-world operations.
                     </li>
                   </ul>
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   <div>
-                    <h4 className="font-semibold text-gold text-base sm:text-lg mb-1">Internship Details</h4>
+                    <h4 className="font-semibold text-gold text-sm sm:text-base lg:text-lg mb-1">Internship Details</h4>
                     <p className="text-xs sm:text-sm text-gray-300"><span className="font-semibold text-white">Duration:</span> Weekly internship rounds</p>
-                    <p className="text-xs sm:text-sm text-gray-300"><span className="font-semibold text-white">Location:</span> DRIC Factory, 10th of Ramadan Industrial Zone</p>
+                    <p className="text-xs sm:text-sm text-gray-300 mt-1"><span className="font-semibold text-white">Location:</span> DRIC Factory, 10th of Ramadan Industrial Zone</p>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gold text-base sm:text-lg mb-1">Eligibility</h4>
-                    <p className="text-xs sm:text-sm text-gray-300">Open to Mechanical & Mechatronics students (1st to 4th year) from <span className="font-semibold text-white">all Egyptian universities</span> (Mainstream & Credit Hours).</p>
+                    <h4 className="font-semibold text-gold text-sm sm:text-base lg:text-lg mb-1">Eligibility</h4>
+                    <p className="text-xs sm:text-sm text-gray-300">
+                      Open to Mechanical & Mechatronics students (1st to 4th year) from{' '}
+                      <span className="font-semibold text-white">all Egyptian universities</span>{' '}
+                      (Mainstream & Credit Hours).
+                    </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-coral/20 border border-coral/30 rounded-lg p-4 mb-6 text-sm text-gray-200">
+              <div className="bg-coral/20 border border-coral/30 rounded-lg p-3 sm:p-4 mb-5 sm:mb-6 text-xs sm:text-sm text-gray-200">
                 <span className="font-bold text-coral">Important:</span> Please read all instructions carefully in the registration form. Failure to follow the guidelines may affect your eligibility for future Pascal events.
               </div>
 
-              <div className="flex flex-col sm:flex-row items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
                 <a
                   href="https://docs.google.com/forms/d/e/1FAIpQLSeUSQviX5xMEej6a87eBS8AwpB9CKnxIBFMdqBNchW5Lg87fQ/viewform?usp=dialog"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg shadow-lg hover:shadow-gold/30 hover:scale-102 transition-all duration-300 text-base"
+                  className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg shadow-lg hover:opacity-90 transition-all duration-300 text-sm sm:text-base"
                 >
                   Register for the Summer Internship
                 </a>
-                <span className="text-xs text-gray-400">Seats are limited (first-come, first-served)</span>
+                <span className="text-center sm:text-left text-xs text-gray-400">Seats are limited (first-come, first-served)</span>
               </div>
 
-              <div className="mt-6 flex items-center gap-2">
+              <div className="mt-4 sm:mt-6 flex items-center gap-2">
                 <span className="text-xs text-gray-400">Sponsored by:</span>
                 <span className="text-sm font-semibold text-white">AIC Rocol</span>
               </div>
-            </div>
-
-            {/* Right: Image Poster */}
-            <div className="lg:w-2/5 flex justify-center w-full">
-              <motion.img
-                src="dric int .png"
-                alt="Summer Internship 2026 Poster"
-                className="w-full max-w-sm rounded-lg sm:rounded-xl shadow-lg border-2 border-gold/20"
-                whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.3 }}
-              />
             </div>
           </div>
         </motion.section>
