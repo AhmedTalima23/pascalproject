@@ -306,45 +306,8 @@ const Home = () => {
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
 
-            {/* Summer Internship Card */}
-            <motion.div
-              className="relative bg-white/5 backdrop-blur-sm border border-gold/25 rounded-2xl overflow-hidden shadow-xl flex flex-col"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -4 }}
-            >
-              {/* Banner image */}
-              <div className="relative h-48 overflow-hidden flex-shrink-0">
-                <img src="/dric int .png" alt="Summer Internship 2026" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/80" />
-                <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">🎉 ACTIVE REGISTRATION</span>
-                <span className="absolute top-3 right-3 px-2.5 py-1 bg-black/40 backdrop-blur-sm text-white rounded-full text-xs font-medium">Internship</span>
-              </div>
-              {/* Content */}
-              <div className="p-5 flex flex-col flex-grow">
-                <h3 className="text-lg font-bold text-white mb-0.5">Summer Internship Program 2026</h3>
-                <p className="text-gold text-sm font-semibold mb-3">Explore HVAC Manufacturing with DRIC</p>
-                <p className="text-gray-300 text-sm leading-relaxed mb-4 flex-grow">
-                  Pascal is pleased to announce an exclusive Summer Internship in collaboration with{' '}
-                  <strong className="text-gold">DRIC — Developed Refrigeration &amp; Air Conditioning Industrial Co.</strong>
-                </p>
-                <ul className="space-y-1 text-xs text-gray-400 mb-4 border-t border-white/10 pt-3">
-                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> HVAC duct and air handling unit manufacturing</li>
-                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Design, assembly and quality control of industrial systems</li>
-                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Open to all Egyptian universities (1st–4th year)</li>
-                </ul>
-                <a
-                  href="/events#announcements"
-                  className="w-full text-center py-2.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg hover:opacity-90 transition-all text-sm"
-                >
-                  View Details &amp; Register
-                </a>
-              </div>
-            </motion.div>
 
-            {/* ROCOL Field Trip Card */}
+          {/* ROCOL Field Trip Card */}
             <motion.div
               className="relative bg-white/5 backdrop-blur-sm border border-gold/25 rounded-2xl overflow-hidden shadow-xl flex flex-col"
               initial={{ opacity: 0, y: 20 }}
@@ -378,6 +341,44 @@ const Home = () => {
                 </ul>
                 <a
                   href="/events#field-trips"
+                  className="w-full text-center py-2.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg hover:opacity-90 transition-all text-sm"
+                >
+                  View Details &amp; Register
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Summer Internship Card */}
+            <motion.div
+              className="relative bg-white/5 backdrop-blur-sm border border-gold/25 rounded-2xl overflow-hidden shadow-xl flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -4 }}
+            >
+              {/* Banner image */}
+              <div className="relative h-48 overflow-hidden flex-shrink-0">
+                <img src="/dric int .png" alt="Summer Internship 2026" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/80" />
+                <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">🎉 ACTIVE REGISTRATION</span>
+                <span className="absolute top-3 right-3 px-2.5 py-1 bg-black/40 backdrop-blur-sm text-white rounded-full text-xs font-medium">Internship</span>
+              </div>
+              {/* Content */}
+              <div className="p-5 flex flex-col flex-grow">
+                <h3 className="text-lg font-bold text-white mb-0.5">Summer Internship Program 2026</h3>
+                <p className="text-gold text-sm font-semibold mb-3">Explore HVAC Manufacturing with DRIC</p>
+                <p className="text-gray-300 text-sm leading-relaxed mb-4 flex-grow">
+                  Pascal is pleased to announce an exclusive Summer Internship in collaboration with{' '}
+                  <strong className="text-gold">DRIC — Developed Refrigeration &amp; Air Conditioning Industrial Co.</strong>
+                </p>
+                <ul className="space-y-1 text-xs text-gray-400 mb-4 border-t border-white/10 pt-3">
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> HVAC duct and air handling unit manufacturing</li>
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Design, assembly and quality control of industrial systems</li>
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Open to all Egyptian universities (1st–4th year)</li>
+                </ul>
+                <a
+                  href="/events#announcements"
                   className="w-full text-center py-2.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg hover:opacity-90 transition-all text-sm"
                 >
                   View Details &amp; Register
