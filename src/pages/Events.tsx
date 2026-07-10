@@ -11,6 +11,9 @@ type FieldTripItem = {
   description: string;
   banner: string;
   driveFolder: string;
+  registrationUrl?: string;
+  highlights?: string[];
+  status?: 'upcoming' | 'completed';
 };
 
 type WorkshopItem = {
@@ -154,13 +157,21 @@ const Events = () => {
   const fieldTrips: FieldTripItem[] = [
     {
       id: 1,
-      title: 'ObourLand Factory Visit',
-      location: 'ObourLand Factory, Egypt',
-      date: 'April 24, 2025',
+      title: 'ROCOL Egypt Field Trip',
+      location: 'ROCOL Egypt — Advanced Industrial Lubricants Facility',
+      date: 'TBA',
       description:
-        "An insightful visit to one of Egypt's leading industrial manufacturing facilities, exploring modern production lines and engineering innovations.",
-      banner: '/obour.jpg',
-      driveFolder: 'https://drive.google.com/drive/folders/19AXG3mAO3wo7q2PCLcR7cPHVYjcAx9Sw?usp=drive_link'
+        'From advanced industrial lubricants to keeping global factories moving — ROCOL Egypt is a leading name in high-performance lubricants and maintenance products, helping heavy industries and manufacturing systems ru n smoothly and efficiently every day.',
+
+      banner: '/rocol.jpg',
+      driveFolder: '',
+      registrationUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScBqD9SYPs-hyDu9uvXWP-KSUOJH2Eo__oTRGD-qKd7YgX3Wg/viewform',
+      highlights: [
+        'Learn why maintenance and lubrication are critical for machines and production lines',
+        'Practical look at high-performance products and real engineering challenges',
+        'Expert-led sessions on solving real industrial problems on the ground'
+      ],
+      status: 'upcoming'
     },
     {
       id: 2,
@@ -215,7 +226,17 @@ const Events = () => {
       description: 'Step inside Daikin Egypt, the Japanese global leader in HVAC-R technology, providing cooling, heating, and innovative climate solutions for offices, factories, and malls. See how engineering turns designs into reality!',
       banner: '/daikin.png',
       driveFolder: ''
-    }
+    },
+    {
+      id: 8,
+      title: 'ObourLand Factory Visit',
+      location: 'ObourLand Factory, Egypt',
+      date: 'April 24, 2025',
+      description:
+        "An insightful visit to one of Egypt's leading industrial manufacturing facilities, exploring modern production lines and engineering innovations.",
+      banner: '/obour.jpg',
+      driveFolder: 'https://drive.google.com/drive/folders/19AXG3mAO3wo7q2PCLcR7cPHVYjcAx9Sw?usp=drive_link'
+    },
   ];
 
   const internships: InternshipItem[] = [
@@ -286,170 +307,131 @@ const Events = () => {
       </section>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
-        {/* Summer Internship 2026 Announcement */}
-        <motion.section
-          id="internship-2026"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-navy via-primary-950 to-navy text-white border-2 border-gold/40 rounded-xl sm:rounded-2xl p-5 sm:p-8 md:p-12 shadow-xl overflow-hidden relative"
-        >
-          {/* Subtle glowing backgrounds */}
-          <div className="absolute inset-0 opacity-10 pointer-events-none">
-            <div className="absolute top-0 left-0 w-64 sm:w-96 h-64 sm:h-96 bg-gold rounded-full filter blur-3xl"></div>
-            <div className="absolute bottom-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-coral rounded-full filter blur-3xl"></div>
-          </div>
-
-          {/* Mobile: poster first, then content. Desktop: side by side */}
-          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12">
-
-            {/* Poster — shown first on mobile, right on desktop */}
-            <div className="lg:order-2 lg:w-2/5 flex justify-center w-full">
-              <motion.img
-                src="/dric int .png"
-                alt="Summer Internship 2026 Poster"
-                className="w-full max-w-xs sm:max-w-sm lg:max-w-none rounded-lg sm:rounded-xl shadow-lg border-2 border-gold/20 object-cover"
-                whileHover={{ scale: 1.03 }}
-                transition={{ duration: 0.3 }}
-              />
+        {/* ─────────────── Announcements ─────────────── */}
+        <section id="announcements">
+          <motion.header {...fadeUp} className="mb-6">
+            <div className="flex items-center gap-3 mb-1">
+              <div className="w-1.5 h-7 bg-gold rounded-full" />
+              <h2 className="text-2xl md:text-3xl font-bold text-navy">Announcements</h2>
             </div>
+            <p className="text-gray-500 text-sm ml-5">Active registrations and latest updates from Pascal.</p>
+          </motion.header>
 
-            {/* Content */}
-            <div className="lg:order-1 lg:w-3/5 flex-grow">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gold/20 text-gold rounded-full mb-4 border border-gold/30 font-bold text-xs">
-                🎉 ACTIVE REGISTRATION
+          {/* Active Registration Cards */}
+          <motion.div {...fadeUp} className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+
+            {/* ── Summer Internship 2026 ── */}
+            <div className="relative bg-gradient-to-br from-navy via-primary-950 to-navy text-white border border-gold/30 rounded-2xl overflow-hidden shadow-xl flex flex-col">
+              <div className="absolute inset-0 pointer-events-none opacity-[0.07]">
+                <div className="absolute -top-16 -left-16 w-72 h-72 bg-gold rounded-full blur-3xl" />
+                <div className="absolute -bottom-16 -right-16 w-72 h-72 bg-coral rounded-full blur-3xl" />
               </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 leading-tight">
-                Summer Internship Program 2026
-              </h2>
-              <h3 className="text-base sm:text-lg lg:text-xl text-blue-200 font-semibold mb-4 sm:mb-6">
-                Explore the World of HVAC Manufacturing with DRIC
-              </h3>
-
-              <div className="text-sm sm:text-base text-gray-200 space-y-3 mb-5 sm:mb-6 leading-relaxed">
-                <p>
-                  Pascal is pleased to announce an exclusive <strong className="text-gold">Summer Internship</strong> in collaboration with <strong className="text-gold">Developed Refrigeration & Air Conditioning Industrial Co. (DRIC)</strong>.
+              {/* Banner image */}
+              <div className="relative h-44 overflow-hidden flex-shrink-0">
+                <img src="/dric int .png" alt="Summer Internship 2026" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/80" />
+                <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">🎉 ACTIVE REGISTRATION</span>
+                <span className="absolute top-3 right-3 px-2.5 py-1 bg-black/40 backdrop-blur-sm text-white rounded-full text-xs font-medium">Internship</span>
+              </div>
+              {/* Content */}
+              <div className="relative z-10 p-5 flex flex-col flex-grow">
+                <h3 className="text-lg font-bold mb-0.5">Summer Internship Program 2026</h3>
+                <p className="text-gold text-sm font-semibold mb-3">Explore HVAC Manufacturing with DRIC</p>
+                <p className="text-gray-300 text-sm leading-relaxed mb-3 flex-grow">
+                  Pascal is pleased to announce an exclusive Summer Internship in collaboration with{' '}
+                  <strong className="text-gold">DRIC — Developed Refrigeration &amp; Air Conditioning Industrial Co.</strong>
                 </p>
-                <p>
-                  Have you ever wondered how the large-scale air conditioning systems used in shopping malls, hospitals, airports, and industrial facilities are designed and manufactured? This internship offers a unique opportunity to gain practical exposure to the HVAC manufacturing industry.
-                </p>
-              </div>
-
-              {/* Two-column info grid: single column on xs, two on sm+ */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 border-t border-b border-white/10 py-5 sm:py-6 mb-5 sm:mb-6">
-                <div className="space-y-2 sm:space-y-3">
-                  <h4 className="font-semibold text-gold text-sm sm:text-base lg:text-lg">During the Internship, You Will:</h4>
-                  <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-300">
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold font-bold flex-shrink-0">✓</span> Explore HVAC duct and air handling unit manufacturing.
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold font-bold flex-shrink-0">✓</span> Learn design and assembly of industrial systems.
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold font-bold flex-shrink-0">✓</span> Observe quality control and performance testing.
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-gold font-bold flex-shrink-0">✓</span> Gain insights into real-world operations.
-                    </li>
-                  </ul>
-                </div>
-                <div className="space-y-3 sm:space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-gold text-sm sm:text-base lg:text-lg mb-1">Internship Details</h4>
-                    <p className="text-xs sm:text-sm text-gray-300"><span className="font-semibold text-white">Duration:</span> Weekly internship rounds</p>
-                    <p className="text-xs sm:text-sm text-gray-300 mt-1"><span className="font-semibold text-white">Location:</span> DRIC Factory, 10th of Ramadan Industrial Zone</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gold text-sm sm:text-base lg:text-lg mb-1">Eligibility</h4>
-                    <p className="text-xs sm:text-sm text-gray-300">
-                      Open to Mechanical & Mechatronics students (1st to 4th year) from{' '}
-                      <span className="font-semibold text-white">all Egyptian universities</span>{' '}
-                      (Mainstream & Credit Hours).
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-coral/20 border border-coral/30 rounded-lg p-3 sm:p-4 mb-5 sm:mb-6 text-xs sm:text-sm text-gray-200">
-                <span className="font-bold text-coral">Important:</span> Please read all instructions carefully in the registration form. Failure to follow the guidelines may affect your eligibility for future Pascal events.
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSeUSQviX5xMEej6a87eBS8AwpB9CKnxIBFMdqBNchW5Lg87fQ/viewform?usp=dialog"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-3.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg shadow-lg hover:opacity-90 transition-all duration-300 text-sm sm:text-base"
-                >
-                  Register for the Summer Internship
-                </a>
-                <span className="text-center sm:text-left text-xs text-gray-400">Seats are limited (first-come, first-served)</span>
-              </div>
-
-              <div className="mt-4 sm:mt-6 flex items-center gap-2">
-                <span className="text-xs text-gray-400">Sponsored by:</span>
-                <span className="text-sm font-semibold text-white">AIC Rocol</span>
-              </div>
-            </div>
-          </div>
-        </motion.section>
-
-        {/* Exclusive Announcement Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 border-2 border-gray-400 rounded-xl sm:rounded-2xl p-4 sm:p-8 md:p-12 shadow-lg overflow-hidden"
-        >
-          <div className="flex flex-col md:flex-row items-center gap-4 sm:gap-6 md:gap-8">
-            {/* Left: Content */}
-            <div className="flex-1">
-              <div className="flex items-start gap-4">
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="flex-shrink-0"
-                >
-                  <Sparkles className="h-8 w-8 text-gray-500 mt-1" />
-                </motion.div>
-                <div className="flex-grow">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-gray-300 text-gray-800 rounded-full mb-3 border border-gray-400 font-bold text-xs">
-                    🎉 EXCLUSIVE ANNOUNCEMENT
-                  </div>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-                    2026 Workshops Registration Closed
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 max-w-2xl">
-                    The registration period for our 2026 workshops has now closed. We appreciate the overwhelming interest and look forward to welcoming participants to an exciting lineup of mechanical engineering workshops, including Robotics, Hydraulic Systems, Automotive Engineering, SOLIDWORKS, AI & ML applications, and premium sessions by ROCOL on Lubrication and Soft Skills.
-                  </p>
-                  <button
-                    disabled
-                    className="inline-flex items-center px-4 sm:px-8 py-2 sm:py-3 text-sm sm:text-base bg-gray-400 text-gray-600 font-bold rounded-lg cursor-not-allowed"
+                <ul className="space-y-1 text-xs text-gray-300 mb-4 border-t border-white/10 pt-3">
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Explore HVAC duct and air handling unit manufacturing</li>
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Learn design and assembly of industrial systems</li>
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Open to all Egyptian universities — Mechanical &amp; Mechatronics (1st–4th year)</li>
+                </ul>
+                <div className="flex items-center gap-3 mt-auto">
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSeUSQviX5xMEej6a87eBS8AwpB9CKnxIBFMdqBNchW5Lg87fQ/viewform?usp=dialog"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-grow text-center py-2.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg hover:opacity-90 transition-all text-sm"
                   >
-                    Registration Closed
-                  </button>
+                    Register for Internship
+                  </a>
+                  <span className="text-xs text-gray-400 whitespace-nowrap">Seats limited</span>
                 </div>
               </div>
             </div>
 
-            {/* Right: Image */}
-            <motion.div
-              className="flex-1 flex justify-center"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <motion.img
-                src="/pascal workshops final announcement FINAL FINAL.png"
-                alt="2026 Workshops"
-                className="w-full max-w-xs sm:max-w-sm md:max-w-md rounded-lg sm:rounded-xl shadow-lg"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.div>
-          </div>
-        </motion.section>
+            {/* ── ROCOL Egypt Field Trip ── */}
+            <div className="relative bg-gradient-to-br from-navy via-primary-950 to-navy text-white border border-gold/30 rounded-2xl overflow-hidden shadow-xl flex flex-col">
+              <div className="absolute inset-0 pointer-events-none opacity-[0.07]">
+                <div className="absolute -top-16 -left-16 w-72 h-72 bg-gold rounded-full blur-3xl" />
+                <div className="absolute -bottom-16 -right-16 w-72 h-72 bg-red-500 rounded-full blur-3xl" />
+              </div>
+              {/* Banner image */}
+              <div className="relative h-44 overflow-hidden flex-shrink-0">
+                <img
+                  src="/rocol ft.png"
+                  alt="ROCOL Egypt Field Trip"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/60" />
+                <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">🚨 ACTIVE REGISTRATION</span>
+                <span className="absolute top-3 right-3 px-2.5 py-1 bg-black/40 backdrop-blur-sm text-white rounded-full text-xs font-medium">Field Trip</span>
+              </div>
+              {/* Content */}
+              <div className="relative z-10 p-5 flex flex-col flex-grow">
+                <h3 className="text-lg font-bold mb-0.5">Field Trip: ROCOL Egypt</h3>
+                <p className="text-gold text-sm font-semibold mb-3">Advanced Industrial Lubricants &amp; Maintenance</p>
+                <p className="text-gray-300 text-sm leading-relaxed mb-3 flex-grow">
+                  <strong className="text-gold">ROCOL Egypt</strong> is a leading name in high-performance lubricants and maintenance products, helping heavy industries and manufacturing systems run efficiently every day.
+                </p>
+                <ul className="space-y-1 text-xs text-gray-300 mb-4 border-t border-white/10 pt-3">
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Learn why maintenance &amp; lubrication are critical for production lines</li>
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Practical look at high-performance products &amp; real applications</li>
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Real engineering challenges solved by experts on the ground</li>
+                </ul>
+                <div className="flex items-center gap-3 mt-auto">
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScBqD9SYPs-hyDu9uvXWP-KSUOJH2Eo__oTRGD-qKd7YgX3Wg/viewform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-grow text-center py-2.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg hover:opacity-90 transition-all text-sm"
+                  >
+                    Register for Field Trip
+                  </a>
+                  <span className="text-xs text-gray-400 whitespace-nowrap">Seats limited</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Workshops Closed */}
+          <motion.div
+            {...fadeUp}
+            className="bg-gray-100 border border-gray-200 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+          >
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 bg-gray-200 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                <Sparkles className="h-5 w-5 text-gray-500" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-xs font-bold text-gray-500 bg-gray-200 px-2.5 py-0.5 rounded-full">✅ REGISTRATION CLOSED</span>
+                  <span className="text-xs text-gray-400">Workshop</span>
+                </div>
+                <h3 className="text-base font-bold text-gray-800">2026 Workshops Registration</h3>
+                <p className="text-sm text-gray-500 mt-0.5 max-w-2xl leading-relaxed">
+                  The registration period for our 2026 workshops has now closed. Exciting lineup includes Robotics, Hydraulic Systems, Automotive Engineering, SOLIDWORKS, AI &amp; ML, and premium sessions by ROCOL on Lubrication &amp; Soft Skills.
+                </p>
+              </div>
+            </div>
+            <button disabled className="flex-shrink-0 px-5 py-2 bg-gray-300 text-gray-500 font-semibold rounded-lg cursor-not-allowed text-sm whitespace-nowrap">
+              Registration Closed
+            </button>
+          </motion.div>
+        </section>
+
+
+
 
         {/* ----------------- 1) Events Section ----------------- */}
         <section>
@@ -569,11 +551,12 @@ const Events = () => {
         </section>
 
         {/* ----------------- 3) Field Trips Section (Accordion) ----------------- */}
-        <section>
+        <section id="field-trips">
           <motion.header {...fadeUp} className="mb-6">
             <h2 className="text-2xl md:text-3xl font-bold text-navy">Field Trips</h2>
             <p className="text-gray-600 mt-2">Industry and factory visits with guided tours and hands-on demos.</p>
           </motion.header>
+
 
           <motion.div {...fadeUp} className="space-y-4">
             {fieldTrips.map((trip) => (
@@ -616,13 +599,25 @@ const Events = () => {
                       <div className="p-3 sm:p-6">
                         <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">{trip.description}</p>
 
-                        <div className="flex gap-3">
-                          <button
-                            onClick={() => openDriveFolder(trip.driveFolder)}
-                            className="bg-navy hover:bg-primary-800 text-white font-semibold text-sm sm:text-base py-2 px-4 sm:px-6 rounded-lg transition-colors"
-                          >
-                            View Photo Gallery
-                          </button>
+                        <div className="flex flex-wrap gap-3">
+                          {trip.registrationUrl && (
+                            <a
+                              href={trip.registrationUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 bg-gradient-to-r from-gold to-coral text-navy font-bold text-sm sm:text-base py-2 px-4 sm:px-6 rounded-lg shadow-md hover:opacity-90 transition-all"
+                            >
+                              🚀 Register Now
+                            </a>
+                          )}
+                          {trip.driveFolder && (
+                            <button
+                              onClick={() => openDriveFolder(trip.driveFolder)}
+                              className="bg-navy hover:bg-primary-800 text-white font-semibold text-sm sm:text-base py-2 px-4 sm:px-6 rounded-lg transition-colors"
+                            >
+                              View Photo Gallery
+                            </button>
+                          )}
                         </div>
                       </div>
                     </motion.div>

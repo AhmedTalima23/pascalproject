@@ -272,112 +272,124 @@ const Home = () => {
         </div>
       </AnimatedSection>
 
-      {/* Summer Internship 2026 Announcement */}
-      <AnimatedSection className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-navy via-primary-950 to-navy text-white overflow-hidden relative border-b-4 border-coral">
-        {/* Animated background elements */}
+
+      {/* Active Announcements */}
+      <AnimatedSection className="py-12 sm:py-16 bg-gradient-to-br from-navy via-primary-950 to-navy text-white overflow-hidden relative border-b-2 border-gold/20">
         <div className="absolute inset-0">
           <motion.div
-            className="absolute top-1/4 left-4 sm:left-10 w-48 sm:w-72 lg:w-96 h-48 sm:h-72 lg:h-96 bg-gold/10 rounded-full blur-3xl"
+            className="absolute top-0 left-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl"
             animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
           />
           <motion.div
-            className="absolute bottom-1/4 right-4 sm:right-10 w-48 sm:w-72 lg:w-96 h-48 sm:h-72 lg:h-96 bg-coral/10 rounded-full blur-3xl"
+            className="absolute bottom-0 right-0 w-96 h-96 bg-coral/10 rounded-full blur-3xl"
             animate={{ scale: [1, 1.15, 1], opacity: [0.3, 0.6, 0.3] }}
             transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
           />
         </div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Mobile: poster on top, content below. Desktop: side-by-side */}
-          <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center gap-8">
+          {/* Header */}
+          <motion.div
+            className="flex items-center gap-3 mb-8"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <div className="w-1.5 h-8 bg-gold rounded-full" />
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white">Active Announcements</h2>
+              <p className="text-gray-400 text-sm mt-0.5">Open registrations — secure your spot today</p>
+            </div>
+          </motion.div>
 
-            {/* Left Column: Details */}
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+
+            {/* Summer Internship Card */}
             <motion.div
-              initial={{ opacity: 0, x: 0 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              className="relative bg-white/5 backdrop-blur-sm border border-gold/25 rounded-2xl overflow-hidden shadow-xl flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
               viewport={{ once: true }}
+              whileHover={{ y: -4 }}
             >
-              {/* Badge */}
-              <motion.div
-                className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 bg-coral/20 text-coral rounded-full mb-4 sm:mb-6 border border-coral/30 font-bold text-xs sm:text-sm flex-wrap"
-                animate={{ boxShadow: ['0 0 0 0 rgba(255,102,99,0.4)', '0 0 0 10px rgba(255,102,99,0)'] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 text-coral animate-pulse flex-shrink-0" />
-                <span>ACTIVE REGISTRATION — SUMMER 2026</span>
-              </motion.div>
-
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
-                Summer Internship{' '}<span className="text-gold">Program 2026</span>
-              </h2>
-
-              <p className="text-base sm:text-lg text-blue-100 mb-5 sm:mb-6 leading-relaxed">
-                Explore the world of HVAC manufacturing with DRIC! Pascal is pleased to announce an exclusive summer internship in collaboration with{' '}
-                <strong className="text-gold">Developed Refrigeration & Air Conditioning Industrial Co. (DRIC)</strong>.
-              </p>
-
-              <div className="space-y-3 sm:space-y-4 mb-7 sm:mb-8">
-                <div className="flex items-start sm:items-center gap-3 text-blue-100">
-                  <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-gold flex-shrink-0 mt-0.5 sm:mt-0" />
-                  <div className="text-sm sm:text-base">
-                    <span className="font-semibold text-white">Duration:</span> Weekly internship rounds
-                  </div>
-                </div>
-                <div className="flex items-start sm:items-center gap-3 text-blue-100">
-                  <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-gold flex-shrink-0 mt-0.5 sm:mt-0" />
-                  <div className="text-sm sm:text-base">
-                    <span className="font-semibold text-white">Location:</span> DRIC Factory, 10th of Ramadan Industrial Zone
-                  </div>
-                </div>
-                <div className="flex items-start sm:items-center gap-3 text-blue-100">
-                  <Users className="h-5 w-5 sm:h-6 sm:w-6 text-gold flex-shrink-0 mt-0.5 sm:mt-0" />
-                  <div className="text-sm sm:text-base">
-                    <span className="font-semibold text-white">Eligibility:</span> Mechanical & Mechatronics students (All Egyptian Universities)
-                  </div>
-                </div>
+              {/* Banner image */}
+              <div className="relative h-48 overflow-hidden flex-shrink-0">
+                <img src="/dric int .png" alt="Summer Internship 2026" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/80" />
+                <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">🎉 ACTIVE REGISTRATION</span>
+                <span className="absolute top-3 right-3 px-2.5 py-1 bg-black/40 backdrop-blur-sm text-white rounded-full text-xs font-medium">Internship</span>
               </div>
-
-              <a
-                href="/events"
-                className="w-full sm:w-auto inline-flex items-center justify-center px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-gold to-coral hover:from-gold/90 hover:to-coral/90 text-navy font-bold rounded-lg transition-all duration-300 group text-base sm:text-lg shadow-lg hover-lift"
-              >
-                View Details & Register
-                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+              {/* Content */}
+              <div className="p-5 flex flex-col flex-grow">
+                <h3 className="text-lg font-bold text-white mb-0.5">Summer Internship Program 2026</h3>
+                <p className="text-gold text-sm font-semibold mb-3">Explore HVAC Manufacturing with DRIC</p>
+                <p className="text-gray-300 text-sm leading-relaxed mb-4 flex-grow">
+                  Pascal is pleased to announce an exclusive Summer Internship in collaboration with{' '}
+                  <strong className="text-gold">DRIC — Developed Refrigeration &amp; Air Conditioning Industrial Co.</strong>
+                </p>
+                <ul className="space-y-1 text-xs text-gray-400 mb-4 border-t border-white/10 pt-3">
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> HVAC duct and air handling unit manufacturing</li>
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Design, assembly and quality control of industrial systems</li>
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Open to all Egyptian universities (1st–4th year)</li>
+                </ul>
+                <a
+                  href="/events#announcements"
+                  className="w-full text-center py-2.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg hover:opacity-90 transition-all text-sm"
+                >
+                  View Details &amp; Register
+                </a>
+              </div>
             </motion.div>
 
-            {/* Right Column: Poster */}
+            {/* ROCOL Field Trip Card */}
             <motion.div
-              className="flex justify-center"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7 }}
+              className="relative bg-white/5 backdrop-blur-sm border border-gold/25 rounded-2xl overflow-hidden shadow-xl flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
+              whileHover={{ y: -4 }}
             >
-              <a
-                href="/events"
-                className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border-2 sm:border-4 border-gold/30 bg-white group block w-full max-w-xs sm:max-w-sm lg:max-w-md"
-              >
+              {/* Banner image */}
+              <div className="relative h-48 overflow-hidden flex-shrink-0">
                 <img
-                  src="/dric int .png"
-                  alt="Summer Internship 2026 Poster"
-                  className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105"
+                  src="/rocol ft.png"
+                  alt="ROCOL Egypt Field Trip"
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="px-4 sm:px-6 py-2 sm:py-3 bg-white text-navy font-bold rounded-lg shadow-lg text-sm sm:text-base transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    Click to View Details
-                  </span>
-                </div>
-              </a>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/60" />
+                <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">🚨 ACTIVE REGISTRATION</span>
+                <span className="absolute top-3 right-3 px-2.5 py-1 bg-black/40 backdrop-blur-sm text-white rounded-full text-xs font-medium">Field Trip</span>
+              </div>
+              {/* Content */}
+              <div className="p-5 flex flex-col flex-grow">
+                <h3 className="text-lg font-bold text-white mb-0.5">Field Trip: ROCOL Egypt</h3>
+                <p className="text-gold text-sm font-semibold mb-3">Advanced Industrial Lubricants &amp; Maintenance</p>
+                <p className="text-gray-300 text-sm leading-relaxed mb-4 flex-grow">
+                  <strong className="text-gold">ROCOL Egypt</strong> is a leading name in high-performance lubricants and maintenance products, helping heavy industries and manufacturing systems run efficiently every day.
+                </p>
+                <ul className="space-y-1 text-xs text-gray-400 mb-4 border-t border-white/10 pt-3">
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Learn why lubrication is critical for production lines</li>
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Practical look at high-performance products</li>
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Real engineering challenges solved by experts</li>
+                </ul>
+                <a
+                  href="/events#field-trips"
+                  className="w-full text-center py-2.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg hover:opacity-90 transition-all text-sm"
+                >
+                  View Details &amp; Register
+                </a>
+              </div>
             </motion.div>
-
           </div>
         </div>
       </AnimatedSection>
 
       {/* Latest News - ROCOL Sponsorship Announcement */}
+
       <AnimatedSection className="py-20 bg-gradient-to-br from-gold/5 via-coral/5 to-navy/5 border-b-4 border-gold">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -531,7 +543,7 @@ const Home = () => {
                       transition={{ duration: 7, repeat: Infinity }} */}
                     {/* > */}
                       <img
-                        src="/sponsor/rocol.png"
+                        src="/rocol ft.png"
                         alt="ROCOL Egypt Logo"
                         className="h-64 w-auto mx-auto mb-6 rounded-lg shadow-lg bg-white"
                         onError={(e) => {
