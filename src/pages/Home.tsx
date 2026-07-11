@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Calendar, Users, Target, ArrowRight, Facebook, MapPin, Clock, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import UpcomingEventCard from '../components/UpcomingEventCard';
@@ -304,7 +304,45 @@ const Home = () => {
           </motion.div>
 
           {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+
+
+            {/* AG Chem BTTRIGAS Summer Internship Card */}
+            <motion.div
+              className="relative bg-white/5 backdrop-blur-sm border border-gold/25 rounded-2xl overflow-hidden shadow-xl flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -4 }}
+            >
+              {/* Banner image */}
+              <div className="relative h-40 overflow-hidden flex-shrink-0">
+                <img src="/ag chem int.png" alt="AG Chem BTTRIGAS Summer Internship" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/80" />
+                <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">🚨 ACTIVE REGISTRATION</span>
+                <span className="absolute top-3 right-3 px-2.5 py-1 bg-black/40 backdrop-blur-sm text-white rounded-full text-xs font-medium">Internship</span>
+              </div>
+              {/* Content */}
+              <div className="p-5 flex flex-col flex-grow">
+                <h3 className="text-lg font-bold text-white mb-0.5">Summer Internship: AG Chem BTTRIGAS</h3>
+                <p className="text-gold text-sm font-semibold mb-3">Hybrid Training — Refrigerants Industry</p>
+                <p className="text-gray-300 text-sm leading-relaxed mb-4 flex-grow">
+                  2-week Hybrid program with <strong className="text-gold">AG Chem BTTRIGAS</strong>, a leader in refrigerants across Egypt, the Middle East &amp; Africa. Combines offline factory sessions with online modules.
+                </p>
+                <ul className="space-y-1 text-xs text-gray-400 mb-4 border-t border-white/10 pt-3">
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Refrigerants Industry, Applications &amp; Legislation</li>
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Handling, Transportation &amp; Safety</li>
+                  <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Refrigeration Cycle &amp; Energy Management</li>
+                </ul>
+                <a
+                  href="/events#announcements"
+                  className="w-full text-center py-2.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg hover:opacity-90 transition-all text-sm"
+                >
+                  View Details &amp; Register
+                </a>
+              </div>
+            </motion.div>
 
 
           {/* ROCOL Field Trip Card */}
@@ -317,7 +355,7 @@ const Home = () => {
               whileHover={{ y: -4 }}
             >
               {/* Banner image */}
-              <div className="relative h-48 overflow-hidden flex-shrink-0">
+              <div className="relative h-40 overflow-hidden flex-shrink-0">
                 <img
                   src="/rocol ft.png"
                   alt="ROCOL Egypt Field Trip"
@@ -358,7 +396,7 @@ const Home = () => {
               whileHover={{ y: -4 }}
             >
               {/* Banner image */}
-              <div className="relative h-48 overflow-hidden flex-shrink-0">
+              <div className="relative h-40 overflow-hidden flex-shrink-0">
                 <img src="/dric int .png" alt="Summer Internship 2026" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/80" />
                 <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">🎉 ACTIVE REGISTRATION</span>
@@ -385,6 +423,7 @@ const Home = () => {
                 </a>
               </div>
             </motion.div>
+
           </div>
         </div>
       </AnimatedSection>
@@ -544,7 +583,7 @@ const Home = () => {
                       transition={{ duration: 7, repeat: Infinity }} */}
                     {/* > */}
                       <img
-                        src="/rocol ft.png"
+                        src="/rocol.jpg"
                         alt="ROCOL Egypt Logo"
                         className="h-64 w-auto mx-auto mb-6 rounded-lg shadow-lg bg-white"
                         onError={(e) => {
