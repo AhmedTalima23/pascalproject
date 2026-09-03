@@ -384,7 +384,7 @@ const Events = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/80" />
                 <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">
-                  🚨 ACTIVE REGISTRATION
+                  INACTIVE REGISTRATION
                 </span>
                 <span className="absolute top-3 right-3 px-2.5 py-1 bg-black/40 backdrop-blur-sm text-white rounded-full text-xs font-medium">
                   Internship
@@ -421,7 +421,7 @@ const Events = () => {
                     href="https://docs.google.com/forms/d/e/1FAIpQLScg3KBD4-y8Y_4lvlh4P4RWPHQGMXNk6sxqw6IwJNAAEHRvBw/viewform?usp=publish-editor"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-grow text-center py-1.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg hover:opacity-90 transition-all text-xs"
+                    className="flex-grow text-center py-1.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg opacity-50 pointer-events-none text-xs"
                   >
                     Register for Internship
                   </a>
@@ -447,7 +447,7 @@ const Events = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/60" />
                 <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">
-                  🚨 ACTIVE REGISTRATION
+                  INACTIVE REGISTRATION
                 </span>
                 <span className="absolute top-3 right-3 px-2.5 py-1 bg-black/40 backdrop-blur-sm text-white rounded-full text-xs font-medium">
                   Field Trip
@@ -488,7 +488,7 @@ const Events = () => {
                     href="https://docs.google.com/forms/d/e/1FAIpQLScBqD9SYPs-hyDu9uvXWP-KSUOJH2Eo__oTRGD-qKd7YgX3Wg/viewform"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-grow text-center py-1.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg hover:opacity-90 transition-all text-xs"
+                    className="flex-grow text-center py-1.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg opacity-50 pointer-events-none text-xs"
                   >
                     Register for Field Trip
                   </a>
@@ -513,7 +513,7 @@ const Events = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/80" />
                 <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">
-                🚨 ACTIVE REGISTRATION
+                INACTIVE REGISTRATION
                 </span>
                 <span className="absolute top-3 right-3 px-2.5 py-1 bg-black/40 backdrop-blur-sm text-white rounded-full text-xs font-medium">
                   Internship
@@ -555,7 +555,7 @@ const Events = () => {
                     href="https://docs.google.com/forms/d/e/1FAIpQLSeUSQviX5xMEej6a87eBS8AwpB9CKnxIBFMdqBNchW5Lg87fQ/viewform?usp=dialog"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-grow text-center py-1.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg hover:opacity-90 transition-all text-xs"
+                    className="flex-grow text-center py-1.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg opacity-50 pointer-events-none text-xs"
                   >
                     Register for Internship
                   </a>

@@ -320,7 +320,7 @@ const Home = () => {
               <div className="relative h-40 overflow-hidden flex-shrink-0">
                 <img src="/ag chem int.png" alt="AG Chem BTTRIGAS Summer Internship" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/80" />
-                <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">🚨 ACTIVE REGISTRATION</span>
+                <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">INACTIVE REGISTRATION</span>
                 <span className="absolute top-3 right-3 px-2.5 py-1 bg-black/40 backdrop-blur-sm text-white rounded-full text-xs font-medium">Internship</span>
               </div>
               {/* Content */}
@@ -336,8 +336,7 @@ const Home = () => {
                   <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Refrigeration Cycle &amp; Energy Management</li>
                 </ul>
                 <a
-                  href="/events#announcements"
-                  className="w-full text-center py-2.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg hover:opacity-90 transition-all text-sm"
+                  className="w-full text-center py-2.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg opacity-50 pointer-events-none text-sm text-sm"
                 >
                   View Details &amp; Register
                 </a>
@@ -362,7 +361,7 @@ const Home = () => {
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/60" />
-                <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">🚨 ACTIVE REGISTRATION</span>
+                <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">INACTIVE REGISTRATION</span>
                 <span className="absolute top-3 right-3 px-2.5 py-1 bg-black/40 backdrop-blur-sm text-white rounded-full text-xs font-medium">Field Trip</span>
               </div>
               {/* Content */}
@@ -378,8 +377,7 @@ const Home = () => {
                   <li className="flex items-start gap-2"><span className="text-gold font-bold flex-shrink-0">✓</span> Real engineering challenges solved by experts</li>
                 </ul>
                 <a
-                  href="/events#field-trips"
-                  className="w-full text-center py-2.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg hover:opacity-90 transition-all text-sm"
+                  className="w-full text-center py-2.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg !opacity-50 !pointer-events-none text-sm"
                 >
                   View Details &amp; Register
                 </a>
@@ -399,7 +397,7 @@ const Home = () => {
               <div className="relative h-40 overflow-hidden flex-shrink-0">
                 <img src="/dric int .png" alt="Summer Internship 2026" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-navy/80" />
-                <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">🎉 ACTIVE REGISTRATION</span>
+                <span className="absolute top-3 left-3 px-2.5 py-1 bg-gold text-navy rounded-full font-bold text-xs">INACTIVE REGISTRATION</span>
                 <span className="absolute top-3 right-3 px-2.5 py-1 bg-black/40 backdrop-blur-sm text-white rounded-full text-xs font-medium">Internship</span>
               </div>
               {/* Content */}
@@ -417,7 +415,7 @@ const Home = () => {
                 </ul>
                 <a
                   href="/events#announcements"
-                  className="w-full text-center py-2.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg hover:opacity-90 transition-all text-sm"
+                  className="w-full text-center py-2.5 bg-gradient-to-r from-gold to-coral text-navy font-bold rounded-lg opacity-50 pointer-events-none text-sm"
                 >
                   View Details &amp; Register
                 </a>
